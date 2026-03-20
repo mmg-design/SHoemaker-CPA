@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Advisory — Shoemaker CPA</title>
+<!-- Tiempos Headline — local font files -->
+<style>
+@font-face {
+  font-family: 'Tiempos Headline';
+  src: url('Test Tiempos Collection/Test Tiempos Headline/TestTiemposHeadline-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Tiempos Headline';
+  src: url('Test Tiempos Collection/Test Tiempos Headline/TestTiemposHeadline-RegularItalic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Tiempos Headline';
+  src: url('Test Tiempos Collection/Test Tiempos Headline/TestTiemposHeadline-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Tiempos Headline';
+  src: url('Test Tiempos Collection/Test Tiempos Headline/TestTiemposHeadline-MediumItalic.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Tiempos Headline';
+  src: url('Test Tiempos Collection/Test Tiempos Headline/TestTiemposHeadline-Semibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Tiempos Headline';
+  src: url('Test Tiempos Collection/Test Tiempos Headline/TestTiemposHeadline-SemiboldItalic.otf') format('opentype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Tiempos Headline';
+  src: url('Test Tiempos Collection/Test Tiempos Headline/TestTiemposHeadline-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Tiempos Headline';
+  src: url('Test Tiempos Collection/Test Tiempos Headline/TestTiemposHeadline-BoldItalic.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+</style>
+<style>
+/* =========================================
+   SHOEMAKER CPA — BRAND TOKENS
+   ========================================= */
+:root {
+  --color-midnight:    #000026;
+  --color-navy:        #18224d;
+  --color-blue:        #1160ad;
+  --color-sky:         #48a4d5;
+  --color-ice:         #cfe4f2;
+
+  --color-bg-dark:     #000026;
+  --color-bg-medium:   #18224d;
+  --color-bg-light:    #cfe4f2;
+  --color-bg-white:    #ffffff;
+  --color-text-on-dark:  #ffffff;
+  --color-text-on-light: #000026;
+  --color-text-muted:    #48a4d5;
+  --color-accent:        #1160ad;
+  --color-cta:           #48a4d5;
+  --color-cta-hover:     #1160ad;
+  --color-divider:       rgba(17, 96, 173, 0.2);
+
+  --font-headline: 'Tiempos Headline', Georgia, serif;
+  --font-body: Helvetica, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* =========================================
+   RESET & BASE
+   ========================================= */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--color-text-on-light);
+  background: var(--color-bg-white);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+
+/* =========================================
+   UTILITY
+   ========================================= */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.eyebrow {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* =========================================
+   BUTTON GLOW ANIMATION
+   ========================================= */
+@property --border-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes rotate-border {
+  to { --border-angle: 360deg; }
+}
+
+/* =========================================
+   BUTTONS
+   ========================================= */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-image: linear-gradient(180deg, var(--color-cta), var(--color-cta-hover));
+  color: #fff;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px 32px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 11px 0 rgba(0,0,38,0.15), 0 1px 3px 0 rgba(17,96,173,0.2);
+  transition: all 0.2s ease-out;
+  position: relative;
+  z-index: 0;
+  overflow: visible;
+}
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 52px;
+  padding: 2px;
+  background: conic-gradient(from var(--border-angle), transparent 25%, rgba(255,255,255,0.5) 50%, transparent 75%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: rotate-border 3s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+.btn-primary:hover::before {
+  background: conic-gradient(from var(--border-angle), transparent 20%, rgba(255,255,255,0.8) 50%, transparent 80%);
+}
+.btn-primary:hover {
+  background-image: linear-gradient(180deg, #52b0de, var(--color-cta));
+  box-shadow: 0 8px 22px 0 rgba(0,0,38,0.18), 0 4px 6px 0 rgba(17,96,173,0.25);
+  transform: translateY(-2px);
+}
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-image: linear-gradient(180deg, #fff, #f5f5fa);
+  color: var(--color-midnight);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px 30px;
+  border: 1px solid rgba(17,96,173,0.15);
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 11px 0 rgba(0,0,38,0.08), 0 1px 3px 0 rgba(17,96,173,0.12);
+  transition: all 0.2s ease-out;
+  position: relative;
+  z-index: 0;
+  overflow: visible;
+}
+.btn-ghost::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 52px;
+  padding: 2px;
+  background: conic-gradient(from var(--border-angle), transparent 25%, rgba(17,96,173,0.35) 50%, transparent 75%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: rotate-border 3s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+.btn-ghost:hover {
+  box-shadow: 0 8px 22px 0 rgba(0,0,38,0.12), 0 4px 6px 0 rgba(17,96,173,0.18);
+  border-color: var(--color-blue);
+  transform: translateY(-2px);
+}
+.btn-ghost-light {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-image: linear-gradient(180deg, #fff, #f5f5fa);
+  color: var(--color-midnight);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px 30px;
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 11px 0 rgba(0,0,38,0.15), 0 1px 3px 0 rgba(0,0,38,0.1);
+  transition: all 0.2s ease-out;
+  position: relative;
+  z-index: 0;
+  overflow: visible;
+}
+.btn-ghost-light::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 52px;
+  padding: 2px;
+  background: conic-gradient(from var(--border-angle), transparent 25%, rgba(255,255,255,0.4) 50%, transparent 75%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: rotate-border 3s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+.btn-ghost-light:hover {
+  background-image: linear-gradient(180deg, #fff, #eeeef5);
+  box-shadow: 0 8px 22px 0 rgba(0,0,38,0.2), 0 4px 6px 0 rgba(0,0,38,0.15);
+  border-color: #fff;
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   ANIMATIONS
+   ========================================= */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up {
+  opacity: 0;
+  animation: fadeUp 700ms ease-out forwards;
+}
+.delay-1 { animation-delay: 100ms; }
+.delay-2 { animation-delay: 250ms; }
+.delay-3 { animation-delay: 400ms; }
+.delay-4 { animation-delay: 550ms; }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 600ms ease-out, transform 600ms ease-out;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================
+   NAVIGATION
+   ========================================= */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 0;
+  transition: background 300ms ease, box-shadow 300ms ease;
+}
+.nav.scrolled {
+  background: var(--color-navy);
+  box-shadow: 0 2px 24px rgba(0,0,38,0.3);
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+.nav-logo {
+  font-family: var(--font-headline);
+  font-size: 22px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nav-logo-img { height: 28px; width: auto; }
+.footer-logo-img { height: 24px; width: auto; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 15px;
+  color: rgba(255,255,255,0.75);
+  font-weight: 400;
+  transition: color 200ms ease;
+  position: relative;
+}
+.nav-links a:hover { color: #fff; }
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--color-sky);
+  transition: width 250ms ease;
+}
+.nav-links a:hover::after { width: 100%; }
+.nav-utility {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.nav-utility .client-login {
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  font-weight: 400;
+  transition: color 200ms ease;
+}
+.nav-utility .client-login:hover { color: #fff; }
+.nav-utility .btn-primary {
+  font-size: 14px;
+  padding: 10px 24px;
+}
+
+/* Dropdown */
+.nav-dropdown { position: relative; }
+.nav-dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.nav-dropdown-trigger svg {
+  transition: transform 200ms ease;
+  opacity: 0.6;
+}
+.nav-dropdown:hover .nav-dropdown-trigger svg {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-top: 12px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 200ms ease, visibility 200ms ease;
+  list-style: none;
+}
+.nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; }
+.nav-dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--color-navy);
+  border-radius: 1rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 8px 24px rgba(0,0,38,0.4);
+}
+.nav-dropdown-menu li { position: relative; z-index: 1; }
+.nav-dropdown-menu a {
+  display: block;
+  padding: 10px 24px;
+  font-size: 14px;
+  white-space: nowrap;
+  color: rgba(255,255,255,0.65) !important;
+  transition: color 200ms ease;
+}
+.nav-dropdown-menu a:hover { color: #fff !important; }
+.nav-dropdown-menu a::after { display: none !important; }
+.nav-dropdown-menu li:first-child a { padding-top: 16px; }
+.nav-dropdown-menu li:last-child a { padding-bottom: 16px; }
+
+/* Mobile nav toggle */
+.nav-toggle { display: none; background: none; border: none; cursor: pointer; }
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  margin: 5px 0;
+  transition: all 200ms ease;
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+.footer {
+  background: var(--color-midnight);
+  padding: 72px 0 40px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 56px;
+}
+.footer-brand .nav-logo {
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+.footer-brand p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.45);
+  max-width: 280px;
+}
+.footer-col h4 {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 14px;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 20px;
+}
+.footer-col a {
+  display: block;
+  font-size: 15px;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 12px;
+  transition: color 200ms ease;
+}
+.footer-col a:hover { color: #fff; }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding-top: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.3); }
+.footer-newsletter { margin-top: 24px; }
+.footer-newsletter p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 12px;
+}
+.newsletter-form { display: flex; gap: 8px; }
+.newsletter-form input {
+  font-family: var(--font-body);
+  font-size: 14px;
+  padding: 10px 16px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 2rem;
+  color: #fff;
+  outline: none;
+  width: 220px;
+  transition: border-color 200ms ease;
+}
+.newsletter-form input::placeholder { color: rgba(255,255,255,0.3); }
+.newsletter-form input:focus { border-color: var(--color-sky); }
+.newsletter-form button {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 20px;
+  background: var(--color-sky);
+  color: #fff;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: background 200ms ease;
+}
+.newsletter-form button:hover { background: var(--color-blue); }
+
+/* =========================================
+   PAGE — HERO
+   ========================================= */
+.ba-hero {
+  background: var(--color-midnight);
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 80px;
+}
+.ba-hero::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -15%;
+  width: 700px;
+  height: 700px;
+  border: 1px solid rgba(72,164,213,0.06);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.ba-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -25%;
+  left: -8%;
+  width: 500px;
+  height: 500px;
+  border: 1px solid rgba(72,164,213,0.04);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.ba-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+  padding: 100px 0 120px;
+}
+.ba-hero-eyebrow {
+  color: var(--color-sky);
+  margin-bottom: 28px;
+}
+.ba-hero h1 {
+  font-family: var(--font-headline);
+  font-weight: 400;
+  font-size: 62px;
+  line-height: 1.1;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin-bottom: 28px;
+}
+.ba-hero h1 em {
+  font-style: italic;
+  color: var(--color-sky);
+}
+.ba-hero-sub {
+  font-size: 19px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.68);
+  max-width: 580px;
+  margin-bottom: 44px;
+}
+.ba-hero-ctas {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.ba-hero-accent {
+  position: absolute;
+  right: 8%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 300px;
+  background: linear-gradient(to bottom, transparent, var(--color-sky), transparent);
+  opacity: 0.18;
+}
+.ba-hero-accent-2 {
+  position: absolute;
+  right: 13%;
+  top: 45%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 200px;
+  background: linear-gradient(to bottom, transparent, var(--color-blue), transparent);
+  opacity: 0.12;
+}
+
+/* =========================================
+   PAGE — WHAT'S DIFFERENT
+   ========================================= */
+.ba-difference {
+  background: var(--color-ice);
+  padding: 112px 0;
+}
+.ba-section-header {
+  margin-bottom: 72px;
+}
+.ba-section-header .eyebrow {
+  color: var(--color-blue);
+  margin-bottom: 16px;
+}
+.ba-section-header h2 {
+  font-family: var(--font-headline);
+  font-weight: 400;
+  font-size: 44px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-midnight);
+  max-width: 560px;
+}
+.ba-section-header.centered { text-align: center; }
+.ba-section-header.centered h2 { margin: 0 auto; }
+
+.comparison-rows {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 2rem;
+  padding: 0 48px;
+  box-shadow: 0 2px 12px rgba(0,0,38,0.06), 0 1px 4px rgba(0,0,38,0.04);
+}
+.comparison-row {
+  display: grid;
+  grid-template-columns: 1fr 64px 1fr;
+  gap: 0;
+  padding: 48px 0;
+  border-top: 1px solid rgba(17,96,173,0.15);
+  align-items: start;
+}
+.comparison-row:last-child {
+  border-bottom: 1px solid rgba(17,96,173,0.15);
+}
+.comparison-before {
+  padding-right: 40px;
+}
+.comparison-label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.comparison-before .comparison-label {
+  color: rgba(0,0,38,0.35);
+}
+.comparison-after .comparison-label {
+  color: var(--color-blue);
+}
+.comparison-before p {
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgba(0,0,38,0.45);
+  font-style: italic;
+  max-width: 440px;
+}
+.comparison-after {
+  padding-left: 40px;
+}
+.comparison-after p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--color-midnight);
+  font-weight: 400;
+  max-width: 440px;
+}
+.comparison-sep {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 28px;
+}
+.comparison-sep-line {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.comparison-sep-line::before,
+.comparison-sep-line::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 28px;
+  background: rgba(17,96,173,0.2);
+}
+.comparison-sep-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-sky);
+}
+
+/* =========================================
+   PAGE — WHO WE SERVE
+   ========================================= */
+.ba-audience {
+  background: var(--color-bg-white);
+  padding: 112px 0;
+}
+.ba-audience-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.ba-audience-left .eyebrow {
+  color: var(--color-blue);
+  margin-bottom: 16px;
+}
+.ba-audience-left h2 {
+  font-family: var(--font-headline);
+  font-weight: 400;
+  font-size: 44px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-midnight);
+  margin-bottom: 28px;
+}
+.ba-audience-left p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #444;
+  max-width: 480px;
+  margin-bottom: 16px;
+}
+.ba-entity-types {
+  margin-top: 24px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(0,0,38,0.45);
+  letter-spacing: 0.02em;
+}
+.ba-qualifier {
+  background: var(--color-navy);
+  border-radius: 2rem;
+  padding: 52px 48px;
+}
+.ba-qualifier-label {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-sky);
+  margin-bottom: 32px;
+}
+.ba-qualifier-item {
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.ba-qualifier-item:first-of-type {
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.ba-qualifier-item p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.8);
+  max-width: 100%;
+}
+
+/* =========================================
+   PAGE — SCOPE OF SERVICE
+   ========================================= */
+.ba-scope {
+  background: var(--color-navy);
+  padding: 112px 0;
+  position: relative;
+  overflow: hidden;
+}
+.ba-scope::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -5%;
+  width: 500px;
+  height: 500px;
+  border: 1px solid rgba(72,164,213,0.05);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.ba-scope .ba-section-header .eyebrow {
+  color: var(--color-sky);
+}
+.ba-scope .ba-section-header h2 {
+  color: #fff;
+}
+.scope-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.scope-card {
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 2rem;
+  padding: 40px 36px;
+  transition: border-color 250ms ease, background 250ms ease;
+  position: relative;
+}
+.scope-card:hover {
+  border-color: rgba(72,164,213,0.4);
+  background: rgba(255,255,255,0.03);
+}
+.scope-num {
+  font-family: var(--font-headline);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-sky);
+  letter-spacing: 0.08em;
+  margin-bottom: 20px;
+  opacity: 0.7;
+}
+.scope-card h3 {
+  font-family: var(--font-headline);
+  font-size: 17px;
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+.scope-card p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.5);
+}
+
+/* =========================================
+   PAGE — HOW WE WORK
+   ========================================= */
+.ba-process {
+  background: var(--color-ice);
+  padding: 112px 0;
+}
+.ba-process .ba-section-header .eyebrow {
+  color: var(--color-blue);
+}
+.ba-process .ba-section-header h2 {
+  color: var(--color-midnight);
+}
+.process-steps {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.process-step {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 40px;
+  padding: 52px 0;
+  border-top: 1px solid rgba(17,96,173,0.15);
+  align-items: start;
+}
+.process-step:last-child {
+  border-bottom: 1px solid rgba(17,96,173,0.15);
+}
+.process-num {
+  font-family: var(--font-headline);
+  font-size: 40px;
+  font-weight: 400;
+  color: var(--color-blue);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  opacity: 0.5;
+  padding-top: 4px;
+}
+.process-body h3 {
+  font-family: var(--font-headline);
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--color-midnight);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+.process-body p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #444;
+  max-width: 540px;
+}
+
+/* =========================================
+   PAGE — CTA SECTION
+   ========================================= */
+.ba-cta {
+  background: var(--color-midnight);
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.ba-cta::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  border: 1px solid rgba(72,164,213,0.05);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.ba-cta-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.ba-cta h2 {
+  font-family: var(--font-headline);
+  font-weight: 400;
+  font-size: 44px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.ba-cta p {
+  font-size: 18px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 40px;
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 1024px) {
+  .ba-hero h1 { font-size: 48px; }
+  .scope-grid { grid-template-columns: 1fr 1fr; }
+  .ba-audience-grid { gap: 48px; }
+}
+@media (max-width: 768px) {
+  /* Nav */
+  .nav-links { display: none; }
+  .nav-toggle { display: block; }
+  .nav-utility .client-login { display: none; }
+  /* Hero */
+  .ba-hero { min-height: auto; padding-top: 120px; }
+  .ba-hero h1 { font-size: 38px; }
+  .ba-hero-content { padding: 60px 0 80px; }
+  .ba-hero-sub { font-size: 17px; }
+  .ba-hero-accent, .ba-hero-accent-2 { display: none; }
+  /* Sections */
+  .ba-difference,
+  .ba-audience,
+  .ba-scope,
+  .ba-process,
+  .ba-cta { padding: 72px 0; }
+  .ba-section-header { margin-bottom: 48px; }
+  .ba-section-header h2,
+  .ba-audience-left h2,
+  .ba-cta h2 { font-size: 32px; }
+  /* Comparison */
+  .comparison-row {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 40px 0;
+  }
+  .comparison-before { padding-right: 0; }
+  .comparison-after { padding-left: 0; }
+  .comparison-sep { display: none; }
+  /* Audience */
+  .ba-audience-grid { grid-template-columns: 1fr; }
+  .ba-qualifier { padding: 40px 32px; border-radius: 1.5rem; }
+  /* Scope */
+  .scope-grid { grid-template-columns: 1fr; }
+  /* Process */
+  .process-step {
+    grid-template-columns: 40px 1fr;
+    gap: 24px;
+    padding: 40px 0;
+  }
+  .process-num { font-size: 28px; }
+  .process-body h3 { font-size: 22px; }
+  /* Footer */
+  .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+  .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+  /* CTA */
+  .ba-hero-ctas { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<!-- ========== NAVIGATION ========== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="Logo main.svg" alt="Shoemaker CPA" class="nav-logo-img">
+    </a>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <a href="#" class="nav-dropdown-trigger">Specializations <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <ul class="nav-dropdown-menu">
+          <li><a href="multifamily-office.html">Multifamily Office</a></li>
+          <li><a href="business-advisory.html">Business Advisory</a></li>
+        </ul>
+      </li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="resources-index.html">Resources</a></li>
+    </ul>
+    <div class="nav-utility">
+      <a href="#" class="client-login">Client Login</a>
+      <a href="shoemaker-contact.html" class="btn-primary">Schedule a Conversation</a>
+    </div>
+    <button class="nav-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section class="ba-hero">
+  <div class="container">
+    <div class="ba-hero-content">
+      <div class="eyebrow ba-hero-eyebrow fade-up">Business Advisory</div>
+      <h1 class="fade-up delay-1">Year-round advisory for the businesses <em>families build.</em></h1>
+      <p class="ba-hero-sub fade-up delay-2">Most business owners have a CPA who shows up in tax season. We're in your corner all year — on decisions, not just returns.</p>
+      <div class="ba-hero-ctas fade-up delay-3">
+        <button class="btn-primary">
+          Schedule a Conversation
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <a href="#process" class="btn-ghost-light">See how we work</a>
+      </div>
+    </div>
+  </div>
+  <div class="ba-hero-accent"></div>
+  <div class="ba-hero-accent-2"></div>
+</section>
+
+<!-- ========== WHAT'S DIFFERENT ========== -->
+<section class="ba-difference">
+  <div class="container">
+    <div class="ba-section-header reveal">
+      <div class="eyebrow">The Difference</div>
+      <h2>We're not your tax preparer. We're your advisor.</h2>
+    </div>
+    <div class="comparison-rows">
+
+      <div class="comparison-row reveal">
+        <div class="comparison-before">
+          <div class="comparison-label">Traditional CPA relationship</div>
+          <p>Reactive. Something happens in your business — a deal, a hire, a hard year — and your CPA finds out about it in March when they're pulling your documents.</p>
+        </div>
+        <div class="comparison-sep" aria-hidden="true">
+          <div class="comparison-sep-line">
+            <div class="comparison-sep-dot"></div>
+          </div>
+        </div>
+        <div class="comparison-after">
+          <div class="comparison-label">Shoemaker CPA</div>
+          <p>Proactive. We're in the conversation before decisions are made — not reviewing the aftermath. You reach us when something's happening, not only when you owe us documents.</p>
+        </div>
+      </div>
+
+      <div class="comparison-row reveal">
+        <div class="comparison-before">
+          <div class="comparison-label">Traditional CPA relationship</div>
+          <p>Once a year. A flurry of activity in Q1, then silence. The relationship exists to produce a return, not to move your business forward.</p>
+        </div>
+        <div class="comparison-sep" aria-hidden="true">
+          <div class="comparison-sep-line">
+            <div class="comparison-sep-dot"></div>
+          </div>
+        </div>
+        <div class="comparison-after">
+          <div class="comparison-label">Shoemaker CPA</div>
+          <p>Year-round. Quarterly check-ins, open lines between sessions, and outreach from us when something changes that you should know about. Tax season is just one part of the calendar.</p>
+        </div>
+      </div>
+
+      <div class="comparison-row reveal">
+        <div class="comparison-before">
+          <div class="comparison-label">Traditional CPA relationship</div>
+          <p>Compliance-only. Your return gets filed correctly. That's the job. Whether it could have been better — whether you left something on the table — isn't really the conversation.</p>
+        </div>
+        <div class="comparison-sep" aria-hidden="true">
+          <div class="comparison-sep-line">
+            <div class="comparison-sep-dot"></div>
+          </div>
+        </div>
+        <div class="comparison-after">
+          <div class="comparison-label">Shoemaker CPA</div>
+          <p>Strategy-first. Compliance is the floor, not the ceiling. We're looking at your structure, your compensation, your ownership plan, and the full arc of what you're building.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== WHO WE SERVE ========== -->
+<section class="ba-audience">
+  <div class="container">
+    <div class="ba-audience-grid">
+      <div class="ba-audience-left reveal">
+        <div class="eyebrow">Who We Work With</div>
+        <h2>Closely held family businesses under $20M.</h2>
+        <p>Not every business is right for this model. We work with owners who want a real advisory relationship — people who ask questions, who want to understand their numbers, and who value access over a portal and a once-a-year call.</p>
+        <p>If you're wearing too many hats and feel like you're making major decisions without a real financial sounding board, that's the gap we fill.</p>
+        <div class="ba-entity-types">S-Corps &nbsp;·&nbsp; C-Corps &nbsp;·&nbsp; Partnerships &nbsp;·&nbsp; Sole Proprietors</div>
+      </div>
+      <div class="ba-qualifier reveal">
+        <div class="ba-qualifier-label">You might be a fit if —</div>
+        <div class="ba-qualifier-item">
+          <p>You want a CPA who knows your business, not just your tax return — someone who tracks what you're building year over year.</p>
+        </div>
+        <div class="ba-qualifier-item">
+          <p>You make decisions throughout the year — on hires, structure, equipment, ownership — that carry real tax and financial consequences.</p>
+        </div>
+        <div class="ba-qualifier-item">
+          <p>You've outgrown a reactive model and want someone reaching out to you when something changes, not waiting for you to call first.</p>
+        </div>
+        <div class="ba-qualifier-item">
+          <p>You value direct access to your CPA over being routed through staff who don't know your situation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SCOPE OF SERVICE ========== -->
+<section class="ba-scope">
+  <div class="container">
+    <div class="ba-section-header reveal">
+      <div class="eyebrow">What We Do</div>
+      <h2>What year-round advisory actually looks like.</h2>
+    </div>
+    <div class="scope-grid">
+
+      <div class="scope-card reveal">
+        <div class="scope-num">01</div>
+        <h3>Entity structuring and tax planning</h3>
+        <p>We look at how your business is structured and whether your setup still serves you — then build a tax strategy around what you're trying to accomplish, not just what you earned last year.</p>
+      </div>
+
+      <div class="scope-card reveal">
+        <div class="scope-num">02</div>
+        <h3>Quarterly check-ins and proactive communication</h3>
+        <p>Regular touchpoints throughout the year to review your financials, flag issues before they become problems, and keep your plan calibrated to where the business actually is.</p>
+      </div>
+
+      <div class="scope-card reveal">
+        <div class="scope-num">03</div>
+        <h3>Owner compensation strategy</h3>
+        <p>Salary, distributions, retirement contributions — we model the right mix for your business stage and personal tax situation, and revisit it when things change.</p>
+      </div>
+
+      <div class="scope-card reveal">
+        <div class="scope-num">04</div>
+        <h3>Major transaction support</h3>
+        <p>Acquisitions, ownership transitions, exits — these are the moments where the right advisor changes outcomes. We're in the room before you sign, not reviewing documents after.</p>
+      </div>
+
+      <div class="scope-card reveal">
+        <div class="scope-num">05</div>
+        <h3>Business financial review</h3>
+        <p>We dig into your numbers — not just to produce a return, but to understand what's driving performance, where margin is hiding, and what the financials are actually telling you.</p>
+      </div>
+
+      <div class="scope-card reveal">
+        <div class="scope-num">06</div>
+        <h3>Coordination with attorneys and advisors</h3>
+        <p>Your CPA, your attorney, your financial advisor — when they're working off the same information toward the same goals, nothing falls through the cracks. We facilitate that alignment.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== HOW WE WORK ========== -->
+<section class="ba-process" id="process">
+  <div class="container">
+    <div class="ba-section-header centered reveal">
+      <div class="eyebrow">How It Works</div>
+      <h2>Simple. Direct. No guessing about where things stand.</h2>
+    </div>
+    <div class="process-steps">
+
+      <div class="process-step reveal">
+        <div class="process-num">1</div>
+        <div class="process-body">
+          <h3>We start with a conversation — not a proposal or a pitch.</h3>
+          <p>The first step is understanding what you're working with and what you're working toward. We don't show up with a deck. We show up with questions. If it's a fit, we'll both know it by the end of the call.</p>
+        </div>
+      </div>
+
+      <div class="process-step reveal">
+        <div class="process-num">2</div>
+        <div class="process-body">
+          <h3>We build a plan specific to your business and your goals.</h3>
+          <p>Not a template. Not a package. A plan built around your entity structure, your ownership situation, your numbers, and where you're trying to take the business. It changes when your business changes.</p>
+        </div>
+      </div>
+
+      <div class="process-step reveal">
+        <div class="process-num">3</div>
+        <div class="process-body">
+          <h3>We stay in your corner — proactive outreach, not waiting for you to call.</h3>
+          <p>Quarterly reviews, check-ins when something in your industry shifts, a call when a new rule affects your structure. You shouldn't have to remember to ask us the right questions. That's our job.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== CTA ========== -->
+<section class="ba-cta">
+  <div class="container">
+    <div class="ba-cta-inner reveal">
+      <h2>Let's talk about what your business actually needs.</h2>
+      <p>No commitment, no pressure. Just a direct conversation.</p>
+      <button class="btn-primary">
+        Schedule a Conversation
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <img src="Logo main.svg" alt="Shoemaker CPA" class="footer-logo-img">
+        </div>
+        <p>Coordinated tax, wealth, and business advisory for individuals and family businesses in Virginia and beyond.</p>
+        <div class="footer-newsletter">
+          <p>Stay informed. No spam, ever.</p>
+          <div class="newsletter-form">
+            <input type="email" placeholder="your@email.com">
+            <button>Subscribe</button>
+          </div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="multifamily-office.html">Multifamily Office</a>
+        <a href="business-advisory.html">Business Advisory</a>
+        <a href="#">Tax Planning</a>
+        <a href="#">Wealth Management</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="about.html">About</a>
+        <a href="resources-index.html">Resources</a>
+        <a href="shoemaker-contact.html">Contact</a>
+        <a href="#">Client Login</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="#">LinkedIn</a>
+        <a href="mailto:luke@shoemaker.cpa">luke@shoemaker.cpa</a>
+        <a href="#">Lynchburg, Virginia</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Shoemaker CPA. All rights reserved.</p>
+      <p>Privacy Policy &nbsp;·&nbsp; Terms of Service</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ========== JS ========== -->
+<script>
+// Nav scroll behavior
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Intersection Observer — scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -32px 0px' });
+reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

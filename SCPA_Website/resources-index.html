@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resources — Shoemaker CPA</title>
+<meta name="description" content="Writing from Luke Shoemaker, CPA — on the decisions that actually matter for business owners and families managing real wealth.">
+
+<!-- Tiempos Headline — local font files (matches homepage) -->
+<style>
+@font-face {
+  font-family: 'Tiempos Headline';
+  src: url('Test Tiempos Collection/Test Tiempos Headline/TestTiemposHeadline-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Tiempos Headline';
+  src: url('Test Tiempos Collection/Test Tiempos Headline/TestTiemposHeadline-RegularItalic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Tiempos Headline';
+  src: url('Test Tiempos Collection/Test Tiempos Headline/TestTiemposHeadline-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Tiempos Headline';
+  src: url('Test Tiempos Collection/Test Tiempos Headline/TestTiemposHeadline-Semibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Tiempos Headline';
+  src: url('Test Tiempos Collection/Test Tiempos Headline/TestTiemposHeadline-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+</style>
+
+<style>
+/* =========================================
+   BRAND TOKENS
+   ========================================= */
+:root {
+  --color-midnight:    #000026;
+  --color-navy:        #18224d;
+  --color-blue:        #1160ad;
+  --color-sky:         #48a4d5;
+  --color-ice:         #cfe4f2;
+
+  --color-bg-dark:     #000026;
+  --color-bg-medium:   #18224d;
+  --color-bg-light:    #cfe4f2;
+  --color-bg-white:    #ffffff;
+  --color-text-on-dark:  #ffffff;
+  --color-text-on-light: #000026;
+  --color-text-muted:    #48a4d5;
+  --color-accent:        #1160ad;
+  --color-cta:           #48a4d5;
+  --color-cta-hover:     #1160ad;
+  --color-divider:       rgba(17, 96, 173, 0.2);
+
+  --font-headline: 'Tiempos Headline', Georgia, serif;
+  --font-body: Helvetica, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* =========================================
+   RESET & BASE
+   ========================================= */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--color-text-on-light);
+  background: var(--color-bg-white);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+
+/* =========================================
+   UTILITY
+   ========================================= */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.eyebrow {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* =========================================
+   BUTTON — ROTATING BORDER GLOW
+   ========================================= */
+@property --border-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes rotate-border {
+  to { --border-angle: 360deg; }
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-image: linear-gradient(180deg, var(--color-cta), var(--color-cta-hover));
+  color: #fff;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px 32px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 11px 0 rgba(0,0,38,0.15), 0 1px 3px 0 rgba(17,96,173,0.2);
+  transition: all 0.2s ease-out;
+  position: relative;
+  z-index: 0;
+  overflow: visible;
+}
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 52px;
+  padding: 2px;
+  background: conic-gradient(from var(--border-angle), transparent 25%, rgba(255,255,255,0.5) 50%, transparent 75%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: rotate-border 3s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+.btn-primary:hover {
+  background-image: linear-gradient(180deg, #52b0de, var(--color-cta));
+  box-shadow: 0 8px 22px 0 rgba(0,0,38,0.18), 0 4px 6px 0 rgba(17,96,173,0.25);
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   ANIMATIONS
+   ========================================= */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up {
+  opacity: 0;
+  animation: fadeUp 700ms ease-out forwards;
+}
+.delay-1 { animation-delay: 100ms; }
+.delay-2 { animation-delay: 250ms; }
+.delay-3 { animation-delay: 400ms; }
+.delay-4 { animation-delay: 550ms; }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 600ms ease-out, transform 600ms ease-out;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================
+   NAVIGATION (matches homepage exactly)
+   ========================================= */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 0;
+  transition: background 300ms ease, box-shadow 300ms ease;
+}
+.nav.scrolled {
+  background: var(--color-navy);
+  box-shadow: 0 2px 24px rgba(0,0,38,0.3);
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+.nav-logo {
+  font-family: var(--font-headline);
+  font-size: 22px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nav-logo-img { height: 28px; width: auto; }
+.footer-logo-img { height: 24px; width: auto; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 15px;
+  color: rgba(255,255,255,0.75);
+  font-weight: 400;
+  transition: color 200ms ease;
+  position: relative;
+}
+.nav-links a:hover,
+.nav-links a.active { color: #fff; }
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--color-sky);
+  transition: width 250ms ease;
+}
+.nav-links a:hover::after,
+.nav-links a.active::after { width: 100%; }
+.nav-utility {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.nav-utility .client-login {
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  font-weight: 400;
+  transition: color 200ms ease;
+}
+.nav-utility .client-login:hover { color: #fff; }
+.nav-utility .btn-primary {
+  font-size: 14px;
+  padding: 10px 24px;
+}
+
+/* Dropdown */
+.nav-dropdown { position: relative; }
+.nav-dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.nav-dropdown-trigger svg {
+  transition: transform 200ms ease;
+  opacity: 0.6;
+}
+.nav-dropdown:hover .nav-dropdown-trigger svg {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-top: 12px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 200ms ease, visibility 200ms ease;
+  list-style: none;
+}
+.nav-dropdown:hover .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+}
+.nav-dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--color-navy);
+  border-radius: 1rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 8px 24px rgba(0,0,38,0.4);
+}
+.nav-dropdown-menu li { position: relative; z-index: 1; }
+.nav-dropdown-menu a {
+  display: block;
+  padding: 10px 24px;
+  font-size: 14px;
+  white-space: nowrap;
+  color: rgba(255,255,255,0.65) !important;
+  transition: color 200ms ease;
+}
+.nav-dropdown-menu a:hover { color: #fff !important; }
+.nav-dropdown-menu a::after { display: none !important; }
+.nav-dropdown-menu li:first-child a { padding-top: 16px; }
+.nav-dropdown-menu li:last-child a { padding-bottom: 16px; }
+
+/* Mobile toggle */
+.nav-toggle { display: none; background: none; border: none; cursor: pointer; }
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  margin: 5px 0;
+  transition: all 200ms ease;
+}
+
+/* Mobile nav drawer */
+.nav-mobile {
+  display: none;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  background: var(--color-navy);
+  padding: 24px 32px 32px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  z-index: 999;
+}
+.nav-mobile.open { display: block; }
+.nav-mobile a {
+  display: block;
+  font-size: 17px;
+  color: rgba(255,255,255,0.8);
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.nav-mobile a:last-child { border-bottom: none; }
+.nav-mobile a:hover { color: #fff; }
+
+/* =========================================
+   HERO — RESOURCES
+   ========================================= */
+.resources-hero {
+  background: var(--color-midnight);
+  padding: 160px 0 100px;
+  position: relative;
+  overflow: hidden;
+}
+/* Subtle geometric decoration */
+.resources-hero::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  border: 1px solid rgba(72,164,213,0.06);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.resources-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -5%;
+  width: 400px;
+  height: 400px;
+  border: 1px solid rgba(72,164,213,0.04);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.hero-text .eyebrow {
+  color: var(--color-sky);
+  margin-bottom: 24px;
+}
+.hero-text h1 {
+  font-family: var(--font-headline);
+  font-weight: 400;
+  font-size: 54px;
+  line-height: 1.1;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+.hero-text h1 em {
+  font-style: italic;
+  color: var(--color-sky);
+}
+.hero-dek {
+  font-size: 18px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.65);
+  max-width: 480px;
+}
+
+/* Hero newsletter form */
+.hero-subscribe {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.hero-subscribe-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 20px;
+}
+.hero-subscribe-heading {
+  font-family: var(--font-headline);
+  font-size: 22px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+.hero-subscribe-sub {
+  font-size: 14px;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+/* DEVELOPER NOTE: Connect this form to your newsletter platform (ConvertKit, Mailchimp, Klaviyo, etc.) at build time. Replace action="" with the platform's form endpoint. */
+.hero-subscribe-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.hero-subscribe-form input {
+  font-family: var(--font-body);
+  font-size: 15px;
+  padding: 14px 22px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 50px;
+  color: #fff;
+  outline: none;
+  transition: border-color 200ms ease;
+}
+.hero-subscribe-form input::placeholder { color: rgba(255,255,255,0.3); }
+.hero-subscribe-form input:focus { border-color: var(--color-sky); }
+.hero-subscribe-form button {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 14px 24px;
+  background: var(--color-sky);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 200ms ease;
+  text-align: center;
+}
+.hero-subscribe-form button:hover { background: var(--color-blue); }
+.hero-subscribe-privacy {
+  font-size: 12px;
+  color: rgba(255,255,255,0.3);
+  margin-top: 8px;
+}
+
+/* =========================================
+   CATEGORY FILTER BAR
+   ========================================= */
+/* DEVELOPER NOTE: Filter functionality is static in this prototype.
+   Wire up with Webflow CMS Finsweet filter or native CMS filter at build time.
+   Active class toggling below is JavaScript-driven for demo purposes only. */
+.filter-bar {
+  position: sticky;
+  top: 80px; /* accounts for fixed nav height */
+  z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid var(--color-divider);
+}
+.filter-bar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.filter-bar-inner::-webkit-scrollbar { display: none; }
+.filter-btn {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(0,0,38,0.5);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 18px 20px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 200ms ease, border-color 200ms ease;
+  position: relative;
+  top: 1px; /* overlap parent border-bottom */
+}
+.filter-btn:hover {
+  color: var(--color-midnight);
+}
+.filter-btn.active {
+  color: var(--color-blue);
+  font-weight: 600;
+  border-bottom-color: var(--color-blue);
+}
+
+/* =========================================
+   ARTICLE GRID
+   ========================================= */
+.article-grid-section {
+  background: #fff;
+  padding: 80px 0 100px;
+}
+.article-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 56px;
+}
+.card-img {
+  width: 100%;
+  height: 180px;
+  border-radius: 1rem 1rem 0 0;
+  margin: -1px -1px 0 -1px;
+  width: calc(100% + 2px);
+  background: linear-gradient(135deg, var(--color-navy), var(--color-blue));
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.article-card[data-category="business-advisory"] .card-img {
+  background: linear-gradient(135deg, var(--color-midnight), var(--color-navy));
+}
+.article-card[data-category="tax-planning"] .card-img {
+  background: linear-gradient(135deg, var(--color-navy), var(--color-blue));
+}
+.article-card[data-category="multifamily-office"] .card-img {
+  background: linear-gradient(135deg, var(--color-blue), var(--color-sky));
+}
+.article-card {
+  border: 1px solid var(--color-divider);
+  border-radius: 1.25rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 250ms ease, box-shadow 250ms ease;
+  box-shadow: 0 2px 12px rgba(0,0,38,0.06), 0 1px 4px rgba(0,0,38,0.04);
+  overflow: hidden;
+}
+.article-card:hover {
+  border-color: var(--color-blue);
+  box-shadow: 0 8px 28px rgba(0,0,38,0.1), 0 2px 8px rgba(0,0,38,0.06);
+}
+.article-card-body {
+  padding: 28px 28px 32px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.article-card .card-category {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-sky);
+  margin-bottom: 14px;
+}
+.article-card h3 {
+  font-family: var(--font-headline);
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.25;
+  color: var(--color-midnight);
+  letter-spacing: -0.01em;
+  margin-bottom: 14px;
+  flex-grow: 1;
+}
+.article-card .card-excerpt {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(0,0,38,0.55);
+  margin-bottom: 24px;
+}
+.article-card .card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.card-author {
+  font-size: 13px;
+  color: rgba(0,0,38,0.5);
+  font-weight: 500;
+}
+.card-date {
+  font-size: 12px;
+  color: rgba(0,0,38,0.35);
+}
+.card-read-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-blue);
+  margin-top: auto;
+  transition: gap 200ms ease;
+}
+.card-read-link:hover { gap: 10px; }
+.card-read-link svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+  flex-shrink: 0;
+}
+
+/* Section header (shared) */
+.section-label {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-blue);
+  margin-bottom: 12px;
+}
+.section-heading {
+  font-family: var(--font-headline);
+  font-weight: 400;
+  font-size: 38px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-midnight);
+}
+
+/* =========================================
+   NEWSLETTER CTA (DARK)
+   ========================================= */
+.newsletter-cta {
+  background: var(--color-navy);
+  padding: 96px 0;
+}
+.newsletter-cta-inner {
+  max-width: 560px;
+  margin: 0 auto;
+  text-align: center;
+}
+.newsletter-cta h2 {
+  font-family: var(--font-headline);
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 1.15;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+.newsletter-cta .cta-sub {
+  font-size: 17px;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 36px;
+  line-height: 1.6;
+}
+/* DEVELOPER NOTE: Connect this form to your newsletter platform at build time. */
+.cta-form {
+  display: flex;
+  gap: 8px;
+  max-width: 420px;
+  margin: 0 auto;
+}
+.cta-form input {
+  font-family: var(--font-body);
+  font-size: 15px;
+  padding: 14px 22px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 50px;
+  color: #fff;
+  outline: none;
+  flex: 1;
+  min-width: 0;
+  transition: border-color 200ms ease;
+}
+.cta-form input::placeholder { color: rgba(255,255,255,0.35); }
+.cta-form input:focus { border-color: var(--color-sky); }
+.cta-form button {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 14px 28px;
+  background: var(--color-sky);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 200ms ease;
+  flex-shrink: 0;
+}
+.cta-form button:hover { background: var(--color-blue); }
+.cta-privacy {
+  font-size: 12px;
+  color: rgba(255,255,255,0.25);
+  margin-top: 14px;
+}
+
+/* =========================================
+   FOOTER (matches homepage exactly)
+   ========================================= */
+.footer {
+  background: var(--color-midnight);
+  padding: 72px 0 40px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 56px;
+}
+.footer-brand .nav-logo {
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+.footer-brand p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.45);
+  max-width: 280px;
+}
+.footer-col h4 {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 14px;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 20px;
+}
+.footer-col a {
+  display: block;
+  font-size: 15px;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 12px;
+  transition: color 200ms ease;
+}
+.footer-col a:hover { color: #fff; }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding-top: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-bottom p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.3);
+}
+.footer-newsletter { margin-top: 24px; }
+.footer-newsletter p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 12px;
+}
+.newsletter-form {
+  display: flex;
+  gap: 8px;
+}
+.newsletter-form input {
+  font-family: var(--font-body);
+  font-size: 14px;
+  padding: 10px 16px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 50px;
+  color: #fff;
+  outline: none;
+  width: 200px;
+  transition: border-color 200ms ease;
+}
+.newsletter-form input::placeholder { color: rgba(255,255,255,0.3); }
+.newsletter-form input:focus { border-color: var(--color-sky); }
+.newsletter-form button {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 20px;
+  background: var(--color-sky);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 200ms ease;
+}
+.newsletter-form button:hover { background: var(--color-blue); }
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 1024px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 56px; }
+  .hero-text h1 { font-size: 44px; }
+  .article-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: block; }
+  .nav-utility .client-login { display: none; }
+  .resources-hero { padding: 130px 0 72px; }
+  .hero-text h1 { font-size: 36px; }
+  .hero-dek { font-size: 16px; }
+  .section-heading { font-size: 28px; }
+  .article-grid { grid-template-columns: 1fr; margin-top: 36px; }
+  .article-grid-section { padding: 56px 0 72px; }
+  .newsletter-cta { padding: 64px 0; }
+  .newsletter-cta h2 { font-size: 30px; }
+  .cta-form { flex-direction: column; }
+  .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+  .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+  .filter-btn { padding: 16px 14px; font-size: 13px; }
+}
+@media (max-width: 480px) {
+  .container { padding: 0 20px; }
+  .filter-bar-inner { padding: 0 20px; }
+  .hero-subscribe-form { gap: 8px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ========== NAVIGATION ========== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="Logo main.svg" alt="Shoemaker CPA" class="nav-logo-img">
+    </a>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <a href="#" class="nav-dropdown-trigger">Specializations <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <ul class="nav-dropdown-menu">
+          <li><a href="multifamily-office.html">Multifamily Office</a></li>
+          <li><a href="business-advisory.html">Business Advisory</a></li>
+        </ul>
+      </li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="resources-index.html" class="active">Resources</a></li>
+    </ul>
+    <div class="nav-utility">
+      <a href="#" class="client-login">Client Login</a>
+      <a href="shoemaker-contact.html" class="btn-primary">Schedule a Conversation</a>
+    </div>
+    <button class="nav-toggle" aria-label="Open menu" id="navToggle">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Nav Drawer -->
+<div class="nav-mobile" id="navMobile">
+  <a href="#">Specializations</a>
+  <a href="about.html">About</a>
+  <a href="resources-index.html">Resources</a>
+  <a href="#">Client Login</a>
+</div>
+
+<!-- ========== HERO ========== -->
+<section class="resources-hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="eyebrow fade-up">Resources</div>
+        <h1 class="fade-up delay-1">Insights for business owners and families managing real wealth.</h1>
+        <p class="hero-dek fade-up delay-2">Not tax tips. Not generic financial content. Writing from Luke directly — on the decisions that actually matter.</p>
+      </div>
+
+      <!-- DEVELOPER NOTE: Connect to newsletter platform at build time. -->
+      <div class="hero-subscribe fade-up delay-3">
+        <div class="hero-subscribe-label">Stay current</div>
+        <div class="hero-subscribe-heading">Get new posts by email.</div>
+        <div class="hero-subscribe-sub">When something worth reading is ready, it goes out. That's it.</div>
+        <form class="hero-subscribe-form" action="#" method="post">
+          <input type="text" name="first_name" placeholder="First name" autocomplete="given-name">
+          <input type="email" name="email" placeholder="your@email.com" autocomplete="email" required>
+          <button type="submit">Subscribe</button>
+        </form>
+        <p class="hero-subscribe-privacy">No spam. Unsubscribe anytime.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CATEGORY FILTER BAR ========== -->
+<!-- DEVELOPER NOTE: Wire filter buttons to Webflow CMS filter or Finsweet Attributes (fs-cmsfilter) at build time.
+     The data-filter attribute corresponds to the article category field in the CMS. -->
+<div class="filter-bar" role="navigation" aria-label="Article categories">
+  <div class="filter-bar-inner">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="multifamily-office">Multifamily Office</button>
+    <button class="filter-btn" data-filter="business-advisory">Business Advisory</button>
+    <button class="filter-btn" data-filter="tax-planning">Tax Planning</button>
+    <button class="filter-btn" data-filter="firm-updates">Firm Updates</button>
+  </div>
+</div>
+
+<!-- ========== ARTICLE GRID ========== -->
+<section class="article-grid-section">
+  <div class="container">
+    <div>
+      <div class="section-label reveal">From the firm</div>
+      <h2 class="section-heading reveal">Recent writing</h2>
+    </div>
+
+    <div class="article-grid">
+
+      <!-- Card 1 -->
+      <article class="article-card reveal" data-category="business-advisory">
+        <div class="card-img"></div>
+        <div class="article-card-body">
+          <div class="card-category">Business Advisory</div>
+          <h3>What business owners get wrong about entity structure</h3>
+          <p class="card-excerpt">The LLC isn't a tax strategy — it's a container. Most owners set it up once and never revisit whether the structure still makes sense as the business grows.</p>
+          <div class="card-meta">
+            <span class="card-author">Luke Shoemaker, CPA</span>
+            <span class="card-date">March 12, 2026</span>
+          </div>
+          <a href="resources-article.html" class="card-read-link">
+            Read article
+            <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="article-card reveal" data-category="tax-planning">
+        <div class="card-img"></div>
+        <div class="article-card-body">
+          <div class="card-category">Tax Planning</div>
+          <h3>When a Roth conversion actually makes sense</h3>
+          <p class="card-excerpt">Everyone has heard that Roth conversions are a good idea. The question worth asking is: good for whom, and under what circumstances? The math changes depending on your situation.</p>
+          <div class="card-meta">
+            <span class="card-author">Luke Shoemaker, CPA</span>
+            <span class="card-date">February 28, 2026</span>
+          </div>
+          <a href="resources-article.html" class="card-read-link">
+            Read article
+            <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="article-card reveal" data-category="multifamily-office">
+        <div class="card-img"></div>
+        <div class="article-card-body">
+          <div class="card-category">Multifamily Office</div>
+          <h3>What coordinated tax and wealth planning looks like in practice</h3>
+          <p class="card-excerpt">Having a CPA and a financial advisor is common. Having them actually talk to each other — and agree on a plan before any moves get made — is something else entirely.</p>
+          <div class="card-meta">
+            <span class="card-author">Luke Shoemaker, CPA</span>
+            <span class="card-date">February 14, 2026</span>
+          </div>
+          <a href="resources-article.html" class="card-read-link">
+            Read article
+            <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="article-card reveal" data-category="tax-planning">
+        <div class="card-img"></div>
+        <div class="article-card-body">
+          <div class="card-category">Tax Planning</div>
+          <h3>The case for year-round tax planning (and against April surprises)</h3>
+          <p class="card-excerpt">A tax return filed in April tells you what happened last year. The decisions that matter — harvesting losses, timing income, adjusting withholding — happen in the other eleven months.</p>
+          <div class="card-meta">
+            <span class="card-author">Luke Shoemaker, CPA</span>
+            <span class="card-date">January 30, 2026</span>
+          </div>
+          <a href="resources-article.html" class="card-read-link">
+            Read article
+            <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 5 -->
+      <article class="article-card reveal" data-category="business-advisory">
+        <div class="card-img"></div>
+        <div class="article-card-body">
+          <div class="card-category">Business Advisory</div>
+          <h3>Succession planning isn't just about who gets the business</h3>
+          <p class="card-excerpt">The transfer of a family business involves tax exposure, family dynamics, valuation disputes, and liquidity questions — often all at once. Most families wait too long to address any of them.</p>
+          <div class="card-meta">
+            <span class="card-author">Luke Shoemaker, CPA</span>
+            <span class="card-date">January 15, 2026</span>
+          </div>
+          <a href="resources-article.html" class="card-read-link">
+            Read article
+            <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 6 -->
+      <article class="article-card reveal" data-category="multifamily-office">
+        <div class="card-img"></div>
+        <div class="article-card-body">
+          <div class="card-category">Multifamily Office</div>
+          <h3>How to think about concentrated stock positions without panicking</h3>
+          <p class="card-excerpt">Selling all at once creates a tax problem. Holding forever creates a concentration risk. The answer isn't obvious — and it depends on your full financial picture, not just the position itself.</p>
+          <div class="card-meta">
+            <span class="card-author">Luke Shoemaker, CPA</span>
+            <span class="card-date">December 18, 2025</span>
+          </div>
+          <a href="resources-article.html" class="card-read-link">
+            Read article
+            <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+
+    </div><!-- /article-grid -->
+  </div>
+</section>
+
+<!-- ========== NEWSLETTER CTA ========== -->
+<!-- DEVELOPER NOTE: Connect this form to your newsletter platform at build time. -->
+<section class="newsletter-cta">
+  <div class="container">
+    <div class="newsletter-cta-inner reveal">
+      <h2>Get insights worth reading.</h2>
+      <p class="cta-sub">No spam, no noise. Just useful writing when it's ready.</p>
+      <form class="cta-form" action="#" method="post">
+        <input type="email" name="email" placeholder="your@email.com" autocomplete="email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+      <p class="cta-privacy">Unsubscribe anytime. We don't share your information.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <img src="Logo main.svg" alt="Shoemaker CPA" class="footer-logo-img">
+        </div>
+        <p>Coordinated tax, wealth, and business advisory for individuals and family businesses in Virginia and beyond.</p>
+        <div class="footer-newsletter">
+          <p>Stay informed. No spam, ever.</p>
+          <!-- DEVELOPER NOTE: Connect to newsletter platform at build time. -->
+          <div class="newsletter-form">
+            <input type="email" placeholder="your@email.com">
+            <button>Subscribe</button>
+          </div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="multifamily-office.html">Multifamily Office</a>
+        <a href="business-advisory.html">Business Advisory</a>
+        <a href="#">Tax Planning</a>
+        <a href="#">Wealth Management</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="about.html">About</a>
+        <a href="resources-index.html">Resources</a>
+        <a href="shoemaker-contact.html">Contact</a>
+        <a href="#">Client Login</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="#">LinkedIn</a>
+        <a href="mailto:luke@shoemaker.cpa">luke@shoemaker.cpa</a>
+        <a href="#">Lynchburg, Virginia</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Shoemaker CPA. All rights reserved.</p>
+      <p>Privacy Policy &nbsp;&middot;&nbsp; Terms of Service</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ========== JAVASCRIPT ========== -->
+<script>
+// Nav scroll behavior
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Mobile nav toggle
+const navToggle = document.getElementById('navToggle');
+const navMobile = document.getElementById('navMobile');
+navToggle.addEventListener('click', () => {
+  navMobile.classList.toggle('open');
+});
+
+// Scroll reveal via IntersectionObserver
+const reveals = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(el => revealObserver.observe(el));
+
+// Article card staggered fade-in via IntersectionObserver
+const cards = document.querySelectorAll('.article-card');
+const cardObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      // Stagger within the same batch
+      setTimeout(() => {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }, (i % 3) * 100);
+      cardObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+cards.forEach(card => {
+  card.style.opacity = '0';
+  card.style.transform = 'translateY(16px)';
+  card.style.transition = 'opacity 600ms ease-out, transform 600ms ease-out';
+  cardObserver.observe(card);
+});
+
+// Category filter (prototype — static demo only)
+// DEVELOPER NOTE: Replace with Webflow CMS filter logic at build time.
+const filterBtns = document.querySelectorAll('.filter-btn');
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const filter = btn.dataset.filter;
+    cards.forEach(card => {
+      if (filter === 'all' || card.dataset.category === filter) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+</script>
+
+</body>
+</html>

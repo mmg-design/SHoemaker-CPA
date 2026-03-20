@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Shoemaker CPA</title>
+<!-- Tiempos Headline — local font files -->
+<style>
+@font-face {
+  font-family: 'Tiempos Headline';
+  src: url('Test Tiempos Collection/Test Tiempos Headline/TestTiemposHeadline-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Tiempos Headline';
+  src: url('Test Tiempos Collection/Test Tiempos Headline/TestTiemposHeadline-RegularItalic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Tiempos Headline';
+  src: url('Test Tiempos Collection/Test Tiempos Headline/TestTiemposHeadline-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Tiempos Headline';
+  src: url('Test Tiempos Collection/Test Tiempos Headline/TestTiemposHeadline-MediumItalic.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Tiempos Headline';
+  src: url('Test Tiempos Collection/Test Tiempos Headline/TestTiemposHeadline-Semibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Tiempos Headline';
+  src: url('Test Tiempos Collection/Test Tiempos Headline/TestTiemposHeadline-SemiboldItalic.otf') format('opentype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Tiempos Headline';
+  src: url('Test Tiempos Collection/Test Tiempos Headline/TestTiemposHeadline-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Tiempos Headline';
+  src: url('Test Tiempos Collection/Test Tiempos Headline/TestTiemposHeadline-BoldItalic.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+</style>
+<style>
+/* =========================================
+   SHOEMAKER CPA — BRAND TOKENS
+   ========================================= */
+:root {
+  --color-midnight:    #000026;
+  --color-navy:        #18224d;
+  --color-blue:        #1160ad;
+  --color-sky:         #48a4d5;
+  --color-ice:         #cfe4f2;
+
+  --color-bg-dark:     #000026;
+  --color-bg-medium:   #18224d;
+  --color-bg-light:    #cfe4f2;
+  --color-bg-white:    #ffffff;
+  --color-text-on-dark:  #ffffff;
+  --color-text-on-light: #000026;
+  --color-text-muted:    #48a4d5;
+  --color-accent:        #1160ad;
+  --color-cta:           #48a4d5;
+  --color-cta-hover:     #1160ad;
+  --color-divider:       rgba(17, 96, 173, 0.2);
+
+  --font-headline: 'Tiempos Headline', Georgia, serif;
+  --font-body: Helvetica, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* =========================================
+   RESET & BASE
+   ========================================= */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--color-text-on-light);
+  background: var(--color-bg-white);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+
+/* =========================================
+   UTILITY
+   ========================================= */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.eyebrow {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* =========================================
+   BUTTON GLOW ANIMATION
+   ========================================= */
+@property --border-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes rotate-border {
+  to { --border-angle: 360deg; }
+}
+
+/* =========================================
+   BUTTONS
+   ========================================= */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-image: linear-gradient(180deg, var(--color-cta), var(--color-cta-hover));
+  color: #fff;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px 32px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 11px 0 rgba(0, 0, 38, 0.15), 0 1px 3px 0 rgba(17, 96, 173, 0.2);
+  transition: all 0.2s ease-out;
+  position: relative;
+  z-index: 0;
+  overflow: visible;
+}
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 52px;
+  padding: 2px;
+  background: conic-gradient(from var(--border-angle), transparent 25%, rgba(255,255,255,0.5) 50%, transparent 75%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: rotate-border 3s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+.btn-primary:hover::before {
+  background: conic-gradient(from var(--border-angle), transparent 20%, rgba(255,255,255,0.8) 50%, transparent 80%);
+}
+.btn-primary:hover {
+  background-image: linear-gradient(180deg, #52b0de, var(--color-cta));
+  box-shadow: 0 8px 22px 0 rgba(0, 0, 38, 0.18), 0 4px 6px 0 rgba(17, 96, 173, 0.25);
+  transform: translateY(-2px);
+}
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-image: linear-gradient(180deg, #fff, #f5f5fa);
+  color: var(--color-midnight);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px 30px;
+  border: 1px solid rgba(17, 96, 173, 0.15);
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 11px 0 rgba(0, 0, 38, 0.08), 0 1px 3px 0 rgba(17, 96, 173, 0.12);
+  transition: all 0.2s ease-out;
+  position: relative;
+  z-index: 0;
+  overflow: visible;
+}
+.btn-ghost::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 52px;
+  padding: 2px;
+  background: conic-gradient(from var(--border-angle), transparent 25%, rgba(17,96,173,0.35) 50%, transparent 75%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: rotate-border 3s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+.btn-ghost:hover::before {
+  background: conic-gradient(from var(--border-angle), transparent 20%, rgba(17,96,173,0.6) 50%, transparent 80%);
+}
+.btn-ghost:hover {
+  box-shadow: 0 8px 22px 0 rgba(0, 0, 38, 0.12), 0 4px 6px 0 rgba(17, 96, 173, 0.18);
+  border-color: var(--color-blue);
+  transform: translateY(-2px);
+}
+.btn-ghost-light {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-image: linear-gradient(180deg, #fff, #f5f5fa);
+  color: var(--color-midnight);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px 30px;
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 11px 0 rgba(0, 0, 38, 0.15), 0 1px 3px 0 rgba(0, 0, 38, 0.1);
+  transition: all 0.2s ease-out;
+  position: relative;
+  z-index: 0;
+  overflow: visible;
+}
+.btn-ghost-light::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 52px;
+  padding: 2px;
+  background: conic-gradient(from var(--border-angle), transparent 25%, rgba(255,255,255,0.4) 50%, transparent 75%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: rotate-border 3s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+.btn-ghost-light:hover {
+  background-image: linear-gradient(180deg, #fff, #eeeef5);
+  box-shadow: 0 8px 22px 0 rgba(0, 0, 38, 0.2), 0 4px 6px 0 rgba(0, 0, 38, 0.15);
+  border-color: #fff;
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   ANIMATIONS
+   ========================================= */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up {
+  opacity: 0;
+  animation: fadeUp 700ms ease-out forwards;
+}
+.delay-1 { animation-delay: 100ms; }
+.delay-2 { animation-delay: 250ms; }
+.delay-3 { animation-delay: 400ms; }
+.delay-4 { animation-delay: 550ms; }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 600ms ease-out, transform 600ms ease-out;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================
+   NAVIGATION
+   ========================================= */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 0;
+  transition: background 300ms ease, box-shadow 300ms ease;
+}
+.nav.scrolled {
+  background: var(--color-navy);
+  box-shadow: 0 2px 24px rgba(0,0,38,0.3);
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+.nav-logo {
+  font-family: var(--font-headline);
+  font-size: 22px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nav-logo-img {
+  height: 28px;
+  width: auto;
+}
+.footer-logo-img {
+  height: 24px;
+  width: auto;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 15px;
+  color: rgba(255,255,255,0.75);
+  font-weight: 400;
+  transition: color 200ms ease;
+  position: relative;
+}
+.nav-links a:hover { color: #fff; }
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--color-sky);
+  transition: width 250ms ease;
+}
+.nav-links a:hover::after { width: 100%; }
+.nav-links a[aria-current="page"] {
+  color: #fff;
+}
+.nav-links a[aria-current="page"]::after {
+  width: 100%;
+}
+.nav-utility {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.nav-utility .client-login {
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  font-weight: 400;
+  transition: color 200ms ease;
+}
+.nav-utility .client-login:hover { color: #fff; }
+.nav-utility .btn-primary {
+  font-size: 14px;
+  padding: 10px 24px;
+}
+
+/* Dropdown */
+.nav-dropdown {
+  position: relative;
+}
+.nav-dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.nav-dropdown-trigger svg {
+  transition: transform 200ms ease;
+  opacity: 0.6;
+}
+.nav-dropdown:hover .nav-dropdown-trigger svg {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-top: 12px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 200ms ease, visibility 200ms ease;
+  list-style: none;
+}
+.nav-dropdown:hover .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+}
+.nav-dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--color-navy);
+  border-radius: 1rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 8px 24px rgba(0,0,38,0.4);
+}
+.nav-dropdown-menu li {
+  position: relative;
+  z-index: 1;
+}
+.nav-dropdown-menu a {
+  display: block;
+  padding: 10px 24px;
+  font-size: 14px;
+  white-space: nowrap;
+  color: rgba(255,255,255,0.65) !important;
+  transition: color 200ms ease;
+}
+.nav-dropdown-menu a:hover {
+  color: #fff !important;
+}
+.nav-dropdown-menu a::after { display: none !important; }
+.nav-dropdown-menu li:first-child a { padding-top: 16px; }
+.nav-dropdown-menu li:last-child a { padding-bottom: 16px; }
+
+/* Mobile nav toggle */
+.nav-toggle { display: none; background: none; border: none; cursor: pointer; }
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  margin: 5px 0;
+  transition: all 200ms ease;
+}
+
+/* =========================================
+   CONTACT HERO
+   ========================================= */
+.contact-hero {
+  background: var(--color-midnight);
+  padding: 160px 0 220px;
+  position: relative;
+}
+.contact-hero::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -15%;
+  width: 600px;
+  height: 600px;
+  border: 1px solid rgba(72, 164, 213, 0.06);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.contact-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  left: -8%;
+  width: 400px;
+  height: 400px;
+  border: 1px solid rgba(72, 164, 213, 0.04);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.contact-hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+  position: relative;
+  z-index: 2;
+}
+.contact-hero-content {
+  position: relative;
+  padding-top: 16px;
+}
+.calendly-placeholder {
+  background: #fff;
+  border-radius: 1.25rem;
+  height: 620px;
+  box-shadow: 0 32px 80px rgba(0,0,38,0.26), 0 8px 32px rgba(0,0,38,0.15);
+  margin-bottom: -320px;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  color: rgba(0,0,38,0.3);
+}
+.calendly-placeholder svg {
+  width: 40px;
+  height: 40px;
+  opacity: 0.25;
+}
+.calendly-placeholder p {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(0,0,38,0.3);
+}
+.calendly-placeholder span {
+  font-size: 12px;
+  color: rgba(0,0,38,0.2);
+}
+.contact-hero .eyebrow {
+  color: var(--color-sky);
+  margin-bottom: 24px;
+}
+.contact-hero h1 {
+  font-family: var(--font-headline);
+  font-weight: 400;
+  font-size: 58px;
+  line-height: 1.1;
+  color: #fff;
+  letter-spacing: -0.01em;
+  margin-bottom: 24px;
+}
+.contact-hero-sub {
+  font-size: 18px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.65);
+  max-width: 560px;
+  margin-bottom: 28px;
+}
+.hero-contact-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+}
+.hero-contact-links a {
+  color: var(--color-sky);
+  transition: color 200ms ease;
+}
+.hero-contact-links a:hover { color: #fff; }
+.hero-contact-sep {
+  color: rgba(255,255,255,0.25);
+  font-size: 12px;
+}
+/* Decorative vertical lines */
+.hero-accent {
+  position: absolute;
+  right: 8%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 240px;
+  background: linear-gradient(to bottom, transparent, var(--color-sky), transparent);
+  opacity: 0.2;
+}
+.hero-accent-2 {
+  position: absolute;
+  right: 12%;
+  top: 45%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 160px;
+  background: linear-gradient(to bottom, transparent, var(--color-blue), transparent);
+  opacity: 0.15;
+}
+
+/* =========================================
+   TWO-PATH LAYOUT
+   ========================================= */
+.two-path {
+  background: var(--color-bg-white);
+  padding: 280px 0 100px;
+  position: relative;
+}
+.two-path::before {
+  display: none;
+}
+.path-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+.path-card {
+  border: 1px solid var(--color-divider);
+  border-radius: 2rem;
+  padding: 52px 48px;
+  position: relative;
+}
+.path-card--primary {
+  background: var(--color-midnight);
+  border-color: rgba(72, 164, 213, 0.15);
+}
+.path-card--secondary {
+  background: var(--color-bg-white);
+  border-color: var(--color-divider);
+}
+.path-card .eyebrow {
+  margin-bottom: 20px;
+}
+.path-card--primary .eyebrow {
+  color: var(--color-sky);
+}
+.path-card--secondary .eyebrow {
+  color: var(--color-blue);
+}
+.path-card h2 {
+  font-family: var(--font-headline);
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
+}
+.path-card--primary h2 { color: #fff; }
+.path-card--secondary h2 { color: var(--color-midnight); }
+.path-card p {
+  font-size: 16px;
+  line-height: 1.65;
+  margin-bottom: 36px;
+  max-width: 420px;
+}
+.path-card--primary p { color: rgba(255,255,255,0.65); }
+.path-card--secondary p { color: #444; }
+.path-card-secondary-email {
+  margin-top: 20px;
+  font-size: 14px;
+}
+.path-card--primary .path-card-secondary-email {
+  color: rgba(255,255,255,0.5);
+}
+.path-card--primary .path-card-secondary-email a {
+  color: var(--color-sky);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.path-card--secondary .path-card-secondary-email {
+  color: #666;
+}
+.path-card--secondary .path-card-secondary-email a {
+  color: var(--color-blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.path-card-note {
+  margin-top: 16px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.35);
+}
+.path-card--secondary .path-card-note {
+  color: #888;
+}
+.path-divider {
+  width: 40px;
+  height: 1px;
+  margin: 28px 0;
+}
+.path-card--primary .path-divider { background: rgba(255,255,255,0.1); }
+.path-card--secondary .path-divider { background: var(--color-divider); }
+.path-contact-line {
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+.path-card--secondary .path-contact-line { color: #333; }
+.path-card--secondary .path-contact-line a {
+  color: var(--color-blue);
+}
+
+/* =========================================
+   CONTACT FORM SECTION
+   ========================================= */
+.contact-form-section {
+  background: var(--color-navy);
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+.contact-form-section::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -5%;
+  width: 360px;
+  height: 360px;
+  border: 1px solid rgba(72,164,213,0.06);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.contact-form-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 80px;
+  align-items: start;
+  position: relative;
+  z-index: 2;
+}
+.form-intro .eyebrow {
+  color: var(--color-sky);
+  margin-bottom: 20px;
+}
+.form-intro h2 {
+  font-family: var(--font-headline);
+  font-weight: 400;
+  font-size: 38px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.form-intro p {
+  font-size: 16px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.6);
+  max-width: 340px;
+}
+
+/* Form styles — flat, no rounded corners over 4px, no box shadows */
+/* NOTE: Connect this form to a handler at build time (Webflow native forms, Netlify, or similar) */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.form-field label {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.55);
+  text-transform: uppercase;
+}
+.form-field input,
+.form-field select,
+.form-field textarea {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: #fff;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--color-divider);
+  border-radius: 50px;
+  padding: 16px 24px;
+  outline: none;
+  transition: border-color 200ms ease, background 200ms ease;
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: rgba(255,255,255,0.25);
+}
+.form-field select {
+  color: rgba(255,255,255,0.7);
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,0.35)' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+  cursor: pointer;
+}
+.form-field select option {
+  background: var(--color-navy);
+  color: #fff;
+}
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color: var(--color-blue);
+  background: rgba(255,255,255,0.09);
+}
+.form-field textarea {
+  resize: vertical;
+  min-height: 120px;
+  border-radius: 1.25rem;
+}
+.form-submit-row {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 4px;
+}
+.form-submit-row .btn-primary {
+  align-self: flex-start;
+}
+.form-disclaimer {
+  font-size: 13px;
+  color: rgba(255,255,255,0.3);
+  line-height: 1.5;
+}
+
+/* =========================================
+   LOCATION BAR
+   ========================================= */
+.location-bar {
+  background: var(--color-ice);
+  padding: 32px 0;
+  border-top: 1px solid rgba(17, 96, 173, 0.12);
+}
+.location-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.location-firm-name {
+  font-family: var(--font-headline);
+  font-weight: 500;
+  font-size: 17px;
+  color: var(--color-midnight);
+  letter-spacing: -0.01em;
+}
+.location-details {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.location-detail {
+  font-size: 14px;
+  color: #444;
+}
+.location-detail a {
+  color: var(--color-blue);
+  transition: color 200ms ease;
+}
+.location-detail a:hover {
+  color: var(--color-midnight);
+}
+.location-separator {
+  width: 1px;
+  height: 16px;
+  background: rgba(17, 96, 173, 0.2);
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+.footer {
+  background: var(--color-midnight);
+  padding: 72px 0 40px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 56px;
+}
+.footer-brand .nav-logo {
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+.footer-brand p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.45);
+  max-width: 280px;
+}
+.footer-col h4 {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 14px;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 20px;
+}
+.footer-col a {
+  display: block;
+  font-size: 15px;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 12px;
+  transition: color 200ms ease;
+}
+.footer-col a:hover { color: #fff; }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding-top: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-bottom p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.3);
+}
+.footer-newsletter {
+  margin-top: 24px;
+}
+.footer-newsletter p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 12px;
+}
+.newsletter-form {
+  display: flex;
+  gap: 8px;
+}
+.newsletter-form input {
+  font-family: var(--font-body);
+  font-size: 14px;
+  padding: 10px 16px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 2rem;
+  color: #fff;
+  outline: none;
+  width: 220px;
+  transition: border-color 200ms ease;
+}
+.newsletter-form input::placeholder { color: rgba(255,255,255,0.3); }
+.newsletter-form input:focus { border-color: var(--color-sky); }
+.newsletter-form button {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 20px;
+  background: var(--color-sky);
+  color: #fff;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: background 200ms ease;
+}
+.newsletter-form button:hover { background: var(--color-blue); }
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 1024px) {
+  .contact-hero h1 { font-size: 46px; }
+  .contact-hero-inner { grid-template-columns: 1fr; gap: 48px; }
+  .calendly-placeholder { height: 520px; margin-bottom: -240px; }
+  .two-path { padding-top: 280px; }
+  .path-grid { gap: 20px; }
+  .contact-form-inner { grid-template-columns: 1fr; gap: 48px; }
+  .form-intro p { max-width: 100%; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: block; }
+  .nav-utility .client-login { display: none; }
+  .contact-hero { padding: 120px 0 64px; }
+  .contact-hero h1 { font-size: 36px; }
+  .contact-hero-sub { font-size: 16px; }
+  .hero-accent, .hero-accent-2 { display: none; }
+  .calendly-placeholder { margin-bottom: 0; height: 480px; box-shadow: 0 8px 32px rgba(0,0,38,0.18); }
+  .two-path { padding-top: 48px; padding-bottom: 64px; }
+  .path-grid { grid-template-columns: 1fr; }
+  .path-card { padding: 40px 32px; }
+  .contact-form-section { padding: 64px 0; }
+  .form-row { grid-template-columns: 1fr; }
+  .form-intro h2 { font-size: 30px; }
+  .form-submit-row .btn-primary { align-self: stretch; justify-content: center; }
+  .location-bar-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .location-details { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .location-separator { display: none; }
+  .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+  .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ========== NAVIGATION ========== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="Logo main.svg" alt="Shoemaker CPA" class="nav-logo-img">
+    </a>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <a href="#" class="nav-dropdown-trigger">Specializations <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <ul class="nav-dropdown-menu">
+          <li><a href="multifamily-office.html">Multifamily Office</a></li>
+          <li><a href="business-advisory.html">Business Advisory</a></li>
+        </ul>
+      </li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="resources-index.html">Resources</a></li>
+    </ul>
+    <div class="nav-utility">
+      <a href="#" class="client-login">Client Login</a>
+      <a href="shoemaker-contact.html" class="btn-primary">Schedule a Conversation</a>
+    </div>
+    <button class="nav-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section class="contact-hero">
+  <div class="container">
+    <div class="contact-hero-inner">
+
+      <!-- LEFT: Text -->
+      <div class="contact-hero-content">
+        <div class="eyebrow fade-up">Contact</div>
+        <h1 class="fade-up delay-1">Let's start with a conversation.</h1>
+        <p class="contact-hero-sub fade-up delay-2">We don't do cold proposals. Schedule a conversation and we'll take it from there — straightforward and on your timeline.</p>
+        <div class="hero-contact-links fade-up delay-3">
+          <a href="mailto:luke@shoemaker.cpa">luke@shoemaker.cpa</a>
+          <span class="hero-contact-sep">·</span>
+          <a href="#contact-form">Or fill out the form below</a>
+        </div>
+      </div>
+
+      <!-- RIGHT: Calendly embed placeholder -->
+      <div class="calendly-placeholder reveal">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="4" y="8" width="32" height="28" rx="3"/>
+          <path d="M4 16h32M14 4v8M26 4v8"/>
+        </svg>
+        <p>Calendly</p>
+        <span>Scheduling embed will appear here</span>
+      </div>
+
+    </div>
+  </div>
+  <div class="hero-accent"></div>
+  <div class="hero-accent-2"></div>
+</section>
+
+<!-- ========== TWO-PATH LAYOUT ========== -->
+<section class="two-path">
+  <div class="container">
+    <div class="path-grid">
+
+      <!-- LEFT: Prospective clients -->
+      <div class="path-card path-card--primary reveal">
+        <div class="eyebrow">Prospective clients</div>
+        <h2>Start with a scheduled conversation.</h2>
+        <p>The best way to begin is to get time on the calendar. Luke reviews every inquiry personally. If we're a fit, we'll tell you directly. If we're not, we'll tell you that too.</p>
+        <a href="#contact-form" class="btn-primary">
+          Fill out a form
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <p class="path-card-secondary-email">Prefer email? Reach us at <a href="mailto:luke@shoemaker.cpa">luke@shoemaker.cpa</a></p>
+      </div>
+
+      <!-- RIGHT: Existing clients -->
+      <div class="path-card path-card--secondary reveal">
+        <div class="eyebrow">Current clients</div>
+        <h2>Your portal is the fastest path.</h2>
+        <p>For existing clients, the fastest route is through your client portal. You can also email directly or book time if you need a dedicated conversation.</p>
+        <!-- TODO: Replace href with TaxDome portal link -->
+        <a href="#" class="btn-ghost">
+          Client Login
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+
+        <div class="path-divider"></div>
+
+        <p class="path-contact-line">Email: <a href="mailto:luke@shoemaker.cpa">luke@shoemaker.cpa</a></p>
+        <p class="path-contact-line">Phone: <!-- [Phone number placeholder] --> — by scheduled appointment</p>
+        <p class="path-card-note">Luke does not take unscheduled calls. All phone contact is by appointment only.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT FORM ========== -->
+<section class="contact-form-section" id="contact-form">
+  <div class="container">
+    <div class="contact-form-inner">
+
+      <div class="form-intro reveal">
+        <div class="eyebrow">Send a message</div>
+        <h2>Not ready to schedule? Send a note.</h2>
+        <p>We'll get back to you within one business day.</p>
+      </div>
+
+      <!-- NOTE: Connect to a form handler at build time (Webflow native forms, Netlify Forms, or similar) -->
+      <form class="contact-form reveal" name="contact" method="POST" action="#">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="name">Full name</label>
+            <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+          </div>
+          <div class="form-field">
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" placeholder="jane@example.com" required>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="phone">Phone <span style="font-weight:400;text-transform:none;letter-spacing:0;color:rgba(255,255,255,0.3);">(optional)</span></label>
+          <input type="tel" id="phone" name="phone" placeholder="(540) 555-0100">
+        </div>
+
+        <div class="form-field">
+          <label for="inquiry">What brings you here?</label>
+          <select id="inquiry" name="inquiry" required>
+            <option value="" disabled selected>Select one…</option>
+            <option value="multifamily-office">Multifamily Office inquiry</option>
+            <option value="business-advisory">Business Advisory inquiry</option>
+            <option value="existing-client">Existing client question</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" placeholder="Tell us what's on your mind." required></textarea>
+        </div>
+
+        <div class="form-submit-row">
+          <button type="submit" class="btn-primary">Send Message</button>
+          <p class="form-disclaimer">We do not share your information. Responses typically within one business day.</p>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <img src="Logo main.svg" alt="Shoemaker CPA" class="footer-logo-img">
+        </div>
+        <p>Coordinated tax, wealth, and business advisory for individuals and family businesses in Virginia and beyond.</p>
+        <div class="footer-newsletter">
+          <p>Stay informed. No spam, ever.</p>
+          <div class="newsletter-form">
+            <input type="email" placeholder="your@email.com">
+            <button>Subscribe</button>
+          </div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="multifamily-office.html">Multifamily Office</a>
+        <a href="business-advisory.html">Business Advisory</a>
+        <a href="#">Tax Planning</a>
+        <a href="#">Wealth Management</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="about.html">About</a>
+        <a href="resources-index.html">Resources</a>
+        <a href="shoemaker-contact.html">Contact</a>
+        <a href="#">Client Login</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="#">LinkedIn</a>
+        <a href="mailto:luke@shoemaker.cpa">luke@shoemaker.cpa</a>
+        <a href="#">Lynchburg, Virginia</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Shoemaker CPA. All rights reserved.</p>
+      <p>Privacy Policy &nbsp;·&nbsp; Terms of Service</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ========== SCRIPTS ========== -->
+<script>
+// Nav scroll behavior
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Intersection Observer — scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -32px 0px' });
+reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
