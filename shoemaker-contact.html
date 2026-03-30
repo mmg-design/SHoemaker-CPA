@@ -1556,9 +1556,13 @@ a { text-decoration: none; color: inherit; }
       </div>
 
       <!-- NOTE: Connect to a form handler at build time (Webflow native forms, Netlify Forms, or similar) -->
-      <form class="contact-form reveal" name="contact" method="POST" action="https://formspree.io/f/mreoqoyd">
-        <input type="hidden" name="_next" value="https://shoemaker-cpa.vercel.app/index.html">
-        <input type="hidden" name="_replyto" value="">
+      <div class="form-confirmed" id="formConfirmed" style="display:none;text-align:center;padding:64px 40px;background:var(--color-midnight);border-radius:1.5rem;border:1px solid rgba(72,164,213,0.2);">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style="margin:0 auto 20px;display:block;"><circle cx="24" cy="24" r="23" stroke="var(--color-sky)" stroke-width="1.5"/><path d="M14 24l7 7 13-13" stroke="var(--color-sky)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3 style="font-family:var(--font-headline);font-weight:400;font-size:32px;color:#fff;margin-bottom:12px;">Confirmed</h3>
+        <p style="color:rgba(255,255,255,0.6);font-size:16px;max-width:360px;margin:0 auto;">We received your message and will be in touch within one business day.</p>
+      </div>
+
+      <form class="contact-form reveal" id="contactForm" name="contact" method="POST" action="https://formspree.io/f/mreoqoyd">
         <div class="form-row">
           <div class="form-field">
             <label for="name">Full name</label>
@@ -1577,7 +1581,7 @@ a { text-decoration: none; color: inherit; }
 
         <div class="form-field">
           <label for="inquiry">What brings you here?</label>
-          <select id="inquiry" name="inquiry_type" required>
+          <select id="inquiry" name="Inquiry Type" required>
             <option value="" disabled selected>Select one…</option>
             <option value="multifamily-office">Multifamily Office inquiry</option>
             <option value="business-advisory">Business Advisory inquiry</option>
@@ -1640,6 +1644,32 @@ a { text-decoration: none; color: inherit; }
 
 <!-- ========== SCRIPTS ========== -->
 <script>
+// Contact form — in-page confirmation
+const contactForm = document.getElementById('contactForm');
+const formConfirmed = document.getElementById('formConfirmed');
+if (contactForm) {
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(contactForm);
+    try {
+      const res = await fetch(contactForm.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        contactForm.style.display = 'none';
+        formConfirmed.style.display = 'block';
+        formConfirmed.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        contactForm.querySelector('[type="submit"]').textContent = 'Something went wrong — please try again';
+      }
+    } catch {
+      contactForm.querySelector('[type="submit"]').textContent = 'Something went wrong — please try again';
+    }
+  });
+}
+
 // Nav scroll behavior
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
