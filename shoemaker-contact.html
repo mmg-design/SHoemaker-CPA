@@ -1558,6 +1558,7 @@ a { text-decoration: none; color: inherit; }
       <!-- NOTE: Connect to a form handler at build time (Webflow native forms, Netlify Forms, or similar) -->
       <form class="contact-form reveal" name="contact" method="POST" action="https://formspree.io/f/mreoqoyd">
         <input type="hidden" name="_next" value="https://shoemaker-cpa.vercel.app/index.html">
+        <input type="hidden" name="_replyto" value="">
         <div class="form-row">
           <div class="form-field">
             <label for="name">Full name</label>
@@ -1576,7 +1577,7 @@ a { text-decoration: none; color: inherit; }
 
         <div class="form-field">
           <label for="inquiry">What brings you here?</label>
-          <select id="inquiry" name="inquiry" required>
+          <select id="inquiry" name="inquiry_type" required>
             <option value="" disabled selected>Select one…</option>
             <option value="multifamily-office">Multifamily Office inquiry</option>
             <option value="business-advisory">Business Advisory inquiry</option>
