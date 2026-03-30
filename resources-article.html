@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What business owners get wrong about entity structure — Shoemaker CPA</title>
+<meta name="description" content="The LLC isn't a tax strategy; it's a container. Most owners set it up once and never revisit whether the structure still makes sense. Luke Shoemaker, CPA explains what to actually think about.">
+
+<!-- Tiempos Headline — local font files (matches homepage) -->
+<style>
+@font-face {
+  font-family: 'Tiempos Headline';
+  src: url('Test Tiempos Collection/Test Tiempos Headline/TestTiemposHeadline-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Tiempos Headline';
+  src: url('Test Tiempos Collection/Test Tiempos Headline/TestTiemposHeadline-RegularItalic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Tiempos Headline';
+  src: url('Test Tiempos Collection/Test Tiempos Headline/TestTiemposHeadline-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Tiempos Headline';
+  src: url('Test Tiempos Collection/Test Tiempos Headline/TestTiemposHeadline-Semibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Tiempos Headline';
+  src: url('Test Tiempos Collection/Test Tiempos Headline/TestTiemposHeadline-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =========================================
+   SHARED: BUTTON GLOW ANIMATION (from homepage)
+   ========================================= */
+
+
+/* =========================================
+   SHARED: NAVIGATION (from homepage)
+   ========================================= */
+
+
+/* =========================================
+   SHARED: FOOTER (from homepage)
+   ========================================= */
+
+
+/* =========================================
+   SHARED: MOBILE OVERRIDES (from homepage)
+   ========================================= */
+
+
+
+</style>
+
+<style>
+/* =========================================
+   BRAND TOKENS
+   ========================================= */
+:root {
+  --color-midnight:    #000026;
+  --color-navy:        #18224d;
+  --color-blue:        #1160ad;
+  --color-sky:         #48a4d5;
+  --color-ice:         #cfe4f2;
+
+  --color-bg-dark:     #000026;
+  --color-bg-medium:   #18224d;
+  --color-bg-light:    #cfe4f2;
+  --color-bg-white:    #ffffff;
+  --color-text-on-dark:  #ffffff;
+  --color-text-on-light: #000026;
+  --color-divider:       rgba(17, 96, 173, 0.2);
+  --color-cta:           #48a4d5;
+  --color-cta-hover:     #1160ad;
+
+  --font-headline: 'Tiempos Headline', Georgia, serif;
+  --font-body: Helvetica, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* =========================================
+   RESET & BASE
+   ========================================= */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--color-text-on-light);
+  background: var(--color-bg-white);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+
+/* =========================================
+   UTILITY
+   ========================================= */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.eyebrow {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* =========================================
+   BUTTON — ROTATING BORDER GLOW
+   ========================================= */
+@property --border-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes rotate-border {
+  to { --border-angle: 360deg; }
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-image: linear-gradient(180deg, var(--color-cta), var(--color-cta-hover));
+  color: #fff;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px 32px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 11px 0 rgba(0,0,38,0.15), 0 1px 3px 0 rgba(17,96,173,0.2);
+  transition: all 0.2s ease-out;
+  position: relative;
+  z-index: 0;
+  overflow: visible;
+}
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 52px;
+  padding: 2px;
+  background: conic-gradient(from var(--border-angle), transparent 25%, rgba(255,255,255,0.5) 50%, transparent 75%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: rotate-border 3s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+.btn-primary:hover {
+  background-image: linear-gradient(180deg, #52b0de, var(--color-cta));
+  box-shadow: 0 8px 22px 0 rgba(0,0,38,0.18), 0 4px 6px 0 rgba(17,96,173,0.25);
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   ANIMATIONS
+   ========================================= */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up {
+  opacity: 0;
+  animation: fadeUp 700ms ease-out forwards;
+}
+.delay-1 { animation-delay: 100ms; }
+.delay-2 { animation-delay: 250ms; }
+.delay-3 { animation-delay: 400ms; }
+.delay-4 { animation-delay: 550ms; }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 600ms ease-out, transform 600ms ease-out;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================
+   NAVIGATION (matches homepage exactly)
+   ========================================= */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 0;
+  transition: background 300ms ease, box-shadow 300ms ease;
+}
+.nav.scrolled {
+  background: var(--color-navy);
+  box-shadow: 0 2px 24px rgba(0,0,38,0.3);
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+.nav-logo {
+  font-family: var(--font-headline);
+  font-size: 22px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nav-logo-img { height: 28px; width: auto; }
+.footer-logo-img { height: 24px; width: auto; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 44px;
+  margin-left: auto;
+  margin-left: auto;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 15px;
+  color: rgba(255,255,255,0.75);
+  font-weight: 400;
+  transition: color 200ms ease;
+  position: relative;
+}
+.nav-links a:hover,
+.nav-links a.active { color: #fff; }
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--color-sky);
+  transition: width 250ms ease;
+}
+.nav-links a:hover::after,
+.nav-links a.active::after { width: 100%; }
+.nav-utility {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-left: 40px;
+}
+.nav-cta-group { display:flex; align-items:center; gap:8px; }
+.nav-utility .client-login {
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  font-weight: 400;
+  transition: color 200ms ease;
+}
+.nav-utility .client-login:hover { color: #fff; }
+.btn-phone { display:inline-flex; align-items:center; gap:7px; font-size:14px; font-weight:500; color:var(--color-midnight); background:#fff; border:1.5px solid rgba(255,255,255,0.9); border-radius:100px; padding:9px 18px; white-space:nowrap; transition:background 200ms ease; text-decoration:none; }
+.btn-phone:hover { background:rgba(255,255,255,0.88); }
+.btn-phone svg { width:14px; height:14px; stroke:currentColor; stroke-width:2; fill:none; flex-shrink:0; }
+.nav-utility .btn-primary {
+  font-size: 14px;
+  padding: 10px 24px;
+}
+
+/* Dropdown */
+.nav-dropdown { position: relative; }
+.nav-dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.nav-dropdown-trigger svg {
+  transition: transform 200ms ease;
+  opacity: 0.6;
+}
+.nav-dropdown:hover .nav-dropdown-trigger svg {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-top: 12px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 200ms ease, visibility 200ms ease;
+  list-style: none;
+}
+.nav-dropdown:hover .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+}
+.nav-dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--color-navy);
+  border-radius: 1rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 8px 24px rgba(0,0,38,0.4);
+}
+.nav-dropdown-menu li { position: relative; z-index: 1; }
+.nav-dropdown-menu a {
+  display: block;
+  padding: 10px 24px;
+  font-size: 14px;
+  white-space: nowrap;
+  color: rgba(255,255,255,0.65) !important;
+  transition: color 200ms ease;
+}
+.nav-dropdown-menu a:hover { color: #fff !important; }
+.nav-dropdown-menu a::after { display: none !important; }
+.nav-dropdown-menu li:first-child a { padding-top: 16px; }
+.nav-dropdown-menu li:last-child a { padding-bottom: 16px; }
+
+/* Mobile toggle */
+.nav-toggle { display: none; background: none; border: none; cursor: pointer; }
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  margin: 5px 0;
+  transition: all 200ms ease;
+}
+
+/* Mobile nav drawer */
+.nav-mobile {
+  display: none;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  background: var(--color-navy);
+  padding: 24px 32px 32px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  z-index: 999;
+}
+.nav-mobile.open { display: block; }
+.nav-mobile a {
+  display: block;
+  font-size: 17px;
+  color: rgba(255,255,255,0.8);
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.nav-mobile a:last-child { border-bottom: none; }
+.nav-mobile a:hover { color: #fff; }
+
+/* =========================================
+   ARTICLE HEADER
+   ========================================= */
+.article-header {
+  background: var(--color-midnight);
+  padding: 160px 0 88px;
+  position: relative;
+  overflow: hidden;
+}
+/* Subtle geometric decoration */
+.article-header::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -8%;
+  width: 500px;
+  height: 500px;
+  border: 1px solid rgba(72,164,213,0.05);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.article-header-inner {
+  max-width: 800px;
+  position: relative;
+  z-index: 2;
+}
+.article-category {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-sky);
+  margin-bottom: 24px;
+  display: inline-block;
+}
+.article-header h1 {
+  font-family: var(--font-headline);
+  font-weight: 400;
+  font-size: 58px;
+  line-height: 1.08;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+.article-dek {
+  font-size: 20px;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.65);
+  max-width: 620px;
+  margin-bottom: 40px;
+}
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.meta-author {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.85);
+}
+.meta-divider {
+  width: 1px;
+  height: 14px;
+  background: rgba(255,255,255,0.2);
+}
+.meta-date,
+.meta-read-time {
+  font-size: 14px;
+  color: rgba(255,255,255,0.4);
+}
+
+/* =========================================
+   ARTICLE BODY
+   ========================================= */
+.article-body-section {
+  background: #fff;
+  padding: 80px 0 100px;
+}
+.article-prose {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* Typography */
+.article-prose p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #1a1a2e;
+  margin-bottom: 28px;
+}
+.article-prose h2 {
+  font-family: var(--font-headline);
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--color-midnight);
+  margin-top: 56px;
+  margin-bottom: 20px;
+}
+.article-prose h3 {
+  font-family: var(--font-headline);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.25;
+  color: var(--color-midnight);
+  margin-top: 40px;
+  margin-bottom: 14px;
+}
+.article-prose strong {
+  font-weight: 600;
+  color: var(--color-midnight);
+}
+
+/* Pull quote */
+.pull-quote {
+  background: var(--color-ice);
+  border-left: 3px solid var(--color-sky);
+  padding: 28px 32px;
+  margin: 48px 0;
+  border-radius: 0 6px 6px 0;
+}
+.pull-quote p {
+  font-family: var(--font-headline);
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: var(--color-midnight) !important;
+  margin-bottom: 0 !important;
+  font-style: italic;
+}
+
+/* Article back link */
+.article-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-blue);
+  margin-bottom: 48px;
+  transition: gap 200ms ease;
+}
+.article-back:hover { gap: 12px; }
+.article-back svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+  flex-shrink: 0;
+}
+
+/* =========================================
+   AUTHOR BIO BLOCK
+   ========================================= */
+.author-bio {
+  background: var(--color-ice);
+  padding: 80px 0;
+}
+.author-bio-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  gap: 44px;
+  margin-left: auto;
+  margin-left: auto;
+  align-items: flex-start;
+}
+
+/* INSERT PORTRAIT — visually flagged placeholder */
+.author-portrait {
+  flex-shrink: 0;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: var(--color-navy);
+  border: 2px dashed var(--color-sky);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.author-portrait-label {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-sky);
+  text-align: center;
+  line-height: 1.3;
+  padding: 6px;
+}
+
+.author-bio-content {
+  flex: 1;
+}
+.author-bio-byline {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(0,0,38,0.45);
+  margin-bottom: 8px;
+}
+.author-bio-name {
+  font-family: var(--font-headline);
+  font-weight: 400;
+  font-size: 24px;
+  color: var(--color-midnight);
+  letter-spacing: -0.01em;
+  margin-bottom: 14px;
+}
+.author-bio-text {
+  font-size: 16px;
+  line-height: 1.65;
+  color: #333;
+  margin-bottom: 24px;
+  max-width: 540px;
+}
+.author-bio-text p + p { margin-top: 12px; }
+
+/* =========================================
+   RELATED ARTICLES
+   ========================================= */
+.related-articles {
+  background: #fff;
+  padding: 80px 0 100px;
+}
+.related-header {
+  margin-bottom: 48px;
+}
+.related-label {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-blue);
+  margin-bottom: 10px;
+}
+.related-heading {
+  font-family: var(--font-headline);
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-midnight);
+}
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Article cards (same as index page) */
+.article-card {
+  border: 1px solid var(--color-divider);
+  border-radius: 8px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 250ms ease;
+}
+.article-card:hover { border-color: var(--color-blue); }
+.article-card .card-category {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-sky);
+  margin-bottom: 14px;
+}
+.article-card h3 {
+  font-family: var(--font-headline);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.3;
+  color: var(--color-midnight);
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+  flex-grow: 1;
+}
+.article-card .card-excerpt {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(0,0,38,0.55);
+  margin-bottom: 24px;
+}
+.article-card .card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.card-author {
+  font-size: 13px;
+  color: rgba(0,0,38,0.5);
+  font-weight: 500;
+}
+.card-date {
+  font-size: 12px;
+  color: rgba(0,0,38,0.35);
+}
+.card-read-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-blue);
+  transition: gap 200ms ease;
+}
+.card-read-link:hover { gap: 10px; }
+.card-read-link svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+  flex-shrink: 0;
+}
+
+/* =========================================
+   NEWSLETTER CTA (DARK)
+   ========================================= */
+.newsletter-cta {
+  background: var(--color-navy);
+  padding: 96px 0;
+}
+.newsletter-cta-inner {
+  max-width: 560px;
+  margin: 0 auto;
+  text-align: center;
+}
+.newsletter-cta h2 {
+  font-family: var(--font-headline);
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 1.15;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+.newsletter-cta .cta-sub {
+  font-size: 17px;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 36px;
+  line-height: 1.6;
+}
+/* DEVELOPER NOTE: Connect this form to your newsletter platform at build time. */
+.cta-form {
+  display: flex;
+  gap: 8px;
+  max-width: 420px;
+  margin: 0 auto;
+}
+.cta-form input {
+  font-family: var(--font-body);
+  font-size: 15px;
+  padding: 13px 18px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 6px;
+  color: #fff;
+  outline: none;
+  flex: 1;
+  min-width: 0;
+  transition: border-color 200ms ease;
+}
+.cta-form input::placeholder { color: rgba(255,255,255,0.35); }
+.cta-form input:focus { border-color: var(--color-sky); }
+.cta-form button {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 13px 24px;
+  background: var(--color-sky);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 200ms ease;
+  flex-shrink: 0;
+}
+.cta-form button:hover { background: var(--color-blue); }
+.cta-privacy {
+  font-size: 12px;
+  color: rgba(255,255,255,0.25);
+  margin-top: 14px;
+}
+
+/* =========================================
+   FOOTER (matches homepage exactly)
+   ========================================= */
+.footer {
+  background: var(--color-midnight);
+  padding: 72px 0 40px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 56px;
+}
+.footer-brand .nav-logo {
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+.footer-brand p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.45);
+  max-width: 280px;
+}
+.footer-col h4 {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 14px;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 20px;
+}
+.footer-col a {
+  display: block;
+  font-size: 15px;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 12px;
+  transition: color 200ms ease;
+}
+.footer-col a:hover { color: #fff; }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding-top: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-bottom p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.3);
+}
+.footer-newsletter { margin-top: 24px; }
+.footer-newsletter p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 12px;
+}
+.newsletter-form {
+  display: flex;
+  gap: 8px;
+}
+.newsletter-form input {
+  font-family: var(--font-body);
+  font-size: 14px;
+  padding: 10px 16px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 50px;
+  color: #fff;
+  outline: none;
+  width: 200px;
+  transition: border-color 200ms ease;
+}
+.newsletter-form input::placeholder { color: rgba(255,255,255,0.3); }
+.newsletter-form input:focus { border-color: var(--color-sky); }
+.newsletter-form button {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 20px;
+  background: var(--color-sky);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 200ms ease;
+}
+.newsletter-form button:hover { background: var(--color-blue); }
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 1024px) {
+  .related-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .btn-phone .phone-text { display: none; }
+  .label-full { display: inline; }
+.label-short { display: none; }
+.btn-phone .phone-icon { display: block; }
+  .btn-phone { padding: 10px 12px; }
+  .label-full { display: none; }
+  .label-short { display: inline; }
+  .nav-toggle { display: block; }
+  .nav-utility .client-login { display: none; }
+
+  .article-header { padding: 130px 0 64px; }
+  .article-header h1 { font-size: 36px; }
+  .article-dek { font-size: 17px; }
+  .article-meta { gap: 14px; }
+  .meta-divider { display: none; }
+
+  .article-body-section { padding: 56px 0 72px; }
+  .article-prose p { font-size: 17px; }
+  .article-prose h2 { font-size: 26px; margin-top: 44px; }
+  .pull-quote { padding: 22px 24px; }
+  .pull-quote p { font-size: 19px; }
+
+  .author-bio { padding: 56px 0; }
+  .author-bio-inner { flex-direction: column; gap: 24px; }
+  .author-portrait { width: 80px; height: 80px; }
+
+  .related-articles { padding: 56px 0 72px; }
+  .related-grid { grid-template-columns: 1fr; }
+  .related-heading { font-size: 28px; }
+
+  .newsletter-cta { padding: 64px 0; }
+  .newsletter-cta h2 { font-size: 30px; }
+  .cta-form { flex-direction: column; }
+
+  .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+  .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+}
+@media (max-width: 480px) {
+  .container { padding: 0 20px; }
+  .article-prose { padding: 0; }
+}
+
+/* =========================================
+   SHARED: BUTTON GLOW ANIMATION
+   ========================================= */
+/* =========================================
+   BUTTON GLOW ANIMATION
+   ========================================= */
+@property --border-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes rotate-border {
+  to { --border-angle: 360deg; }
+}
+/* =========================================
+   ANIMATIONS
+   ========================================= */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up {
+  opacity: 0;
+  animation: fadeUp 700ms ease-out forwards;
+}
+.delay-1 { animation-delay: 100ms; }
+.delay-2 { animation-delay: 250ms; }
+.delay-3 { animation-delay: 400ms; }
+.delay-4 { animation-delay: 550ms; }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 600ms ease-out, transform 600ms ease-out;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* =========================================
+   SHARED: NAVIGATION
+   ========================================= */
+/* =========================================
+   NAVIGATION
+   ========================================= */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 0;
+  background: var(--color-midnight);
+  transition: background 300ms ease, box-shadow 300ms ease;
+}
+.nav.scrolled {
+  background: var(--color-midnight);
+  box-shadow: 0 2px 24px rgba(0,0,38,0.4);
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+.nav-logo {
+  font-family: var(--font-headline);
+  font-size: 22px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-logo-img {
+  height: 28px;
+  width: auto;
+}
+.footer-logo-img {
+  height: 24px;
+  width: auto;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 44px;
+  list-style: none;
+  margin-left: auto;
+}
+.nav-links a {
+  font-size: 15px;
+  color: rgba(255,255,255,0.75);
+  font-weight: 400;
+  transition: color 200ms ease;
+  position: relative;
+}
+.nav-links a:hover { color: #fff; }
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--color-sky);
+  transition: width 250ms ease;
+}
+.nav-links a:hover::after { width: 100%; }
+.nav-utility {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-left: 40px;
+}
+.nav-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav-utility .client-login {
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  font-weight: 400;
+  transition: color 200ms ease;
+}
+.nav-utility .client-login:hover { color: #fff; }
+.nav-utility .btn-primary {
+  font-size: 14px;
+  padding: 10px 24px;
+}
+.btn-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-midnight);
+  background: #fff;
+  border: none;
+  border-radius: 100px;
+  padding: 10px 18px;
+  white-space: nowrap;
+  transition: background 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+  text-decoration: none;
+  position: relative;
+  z-index: 0;
+  overflow: visible;
+}
+.btn-phone::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 52px;
+  padding: 2px;
+  background: conic-gradient(from var(--border-angle), transparent 25%, rgba(255,255,255,0.55) 50%, transparent 75%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: rotate-border 3s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+.btn-phone:hover {
+  background: rgba(255,255,255,0.9);
+  transform: translateY(-1px);
+}
+.btn-phone .phone-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  display: none;
+}
+/* Label swap helpers */
+.label-full { display: inline; }
+.label-short { display: none; }
+
+
+/* Dropdown */
+.nav-dropdown {
+  position: relative;
+}
+.nav-dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.nav-dropdown-trigger svg {
+  transition: transform 200ms ease;
+  opacity: 0.6;
+}
+.nav-dropdown:hover .nav-dropdown-trigger svg {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-top: 12px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 200ms ease, visibility 200ms ease;
+  list-style: none;
+}
+.nav-dropdown:hover .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+}
+.nav-dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--color-navy);
+  border-radius: 1rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 8px 24px rgba(0,0,38,0.4);
+}
+.nav-dropdown-menu li {
+  position: relative;
+  z-index: 1;
+}
+.nav-dropdown-menu a {
+  display: block;
+  padding: 10px 24px;
+  font-size: 14px;
+  white-space: nowrap;
+  color: rgba(255,255,255,0.65) !important;
+  transition: color 200ms ease;
+}
+.nav-dropdown-menu a:hover {
+  color: #fff !important;
+}
+.nav-dropdown-menu a::after {
+  display: none !important;
+}
+.nav-dropdown-menu li:first-child a {
+  padding-top: 16px;
+}
+.nav-dropdown-menu li:last-child a {
+  padding-bottom: 16px;
+}
+
+/* Mobile nav toggle */
+.nav-toggle { display: none; background: none; border: none; cursor: pointer; }
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  margin: 5px 0;
+  transition: all 200ms ease;
+}
+
+
+/* =========================================
+   SHARED: FOOTER
+   ========================================= */
+/* =========================================
+   FOOTER
+   ========================================= */
+.footer {
+  background: var(--color-midnight);
+  padding: 0;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.footer-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: auto;
+}
+.footer-brand-col {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid rgba(255,255,255,0.06);
+  overflow: hidden;
+  padding: 72px 48px;
+}
+.footer-watermark {
+  width: 55%;
+  max-width: 320px;
+  max-height: 400px;
+  height: auto;
+  opacity: 0.35;
+  filter: brightness(3);
+}
+.footer-links-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px 48px;
+  padding: 64px 56px;
+  align-content: start;
+}
+.footer-col h4 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--color-sky);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+}
+.footer-col a {
+  display: block;
+  font-size: 16px;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 14px;
+  transition: color 200ms ease;
+  text-decoration: none;
+}
+.footer-col a:hover { color: #fff; }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 28px 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-bottom p {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: rgba(255,255,255,0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.footer-social {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.footer-social a {
+  color: rgba(255,255,255,0.3);
+  transition: color 200ms ease;
+  display: flex;
+  align-items: center;
+}
+.footer-social a:hover { color: #fff; }
+.footer-social svg {
+  width: 20px;
+  height: 20px;
+}
+
+
+/* =========================================
+   SHARED: RESPONSIVE
+   ========================================= */
+@media (max-width: 1024px) {
+  .hero h1 { font-size: 48px; }
+  .pillar-grid { gap: 24px; }
+  .approach-grid { grid-template-columns: 1fr; gap: 48px; }
+  .diff-grid { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: block; }
+  .nav-utility .client-login { display: none; }
+  .btn-phone .phone-text { display: none; }
+  .btn-phone .phone-icon { display: block; }
+  .btn-phone { padding: 10px 12px; }
+  .label-full { display: none; }
+  .label-short { display: inline; }
+  .hero { min-height: auto; padding-top: 120px; }
+  .hero h1 { font-size: 38px; }
+  .hero-content { padding: 60px 0 80px; }
+  .hero-sub { font-size: 17px; }
+  .hero-accent, .hero-accent-2 { display: none; }
+  .pillars, .approach, .differentiator { padding: 80px 0; }
+  .section-header h2, .approach-content h2, .diff-content h2 { font-size: 32px; }
+  .pillar-grid { grid-template-columns: 1fr; }
+  .pillar-card { padding: 40px 32px; }
+  .trust-bar-inner { gap: 40px; }
+  .cta-inner { padding: 48px 32px; flex-direction: column; text-align: center; }
+  .cta-text p { max-width: 100%; }
+  .cta-actions { flex-direction: column; width: 100%; }
+  .cta-actions .btn-primary, .cta-actions .btn-ghost-light { width: 100%; justify-content: center; }
+  .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+  .footer-main { grid-template-columns: 1fr; min-height: auto; }
+  .footer-brand-col { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); padding: 48px 32px; min-height: 280px; }
+  .footer-links-col { padding: 48px 32px; gap: 40px 32px; }
+  .footer-bottom { padding: 24px 32px; flex-direction: column; gap: 16px; text-align: center; }
+  .testimonial-card { grid-template-columns: 1fr; }
+  .testimonial-image { min-height: 280px; }
+  .testimonial-content { padding: 40px 32px; }
+  .testimonial-quote { font-size: 22px; }
+  .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+}
+
+
+</style>
+</head>
+<body>
+
+<!-- ========== NAVIGATION ========== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="Logo main.svg" alt="Shoemaker CPA" class="nav-logo-img">
+    </a>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <a href="#" class="nav-dropdown-trigger">Specializations <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <ul class="nav-dropdown-menu">
+          <li><a href="multifamily-office.html">Multifamily Office</a></li>
+          <li><a href="business-advisory.html">Business Advisory</a></li>
+        </ul>
+      </li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="resources-index.html">Resources</a></li>
+    </ul>
+    <div class="nav-utility">
+      <a href="https://portal.shoemaker.cpa" class="client-login" target="_blank" rel="noopener">Client Login</a>
+      <div class="nav-cta-group">
+        <a href="tel:4345281246" class="btn-phone">
+          <svg class="phone-icon" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h3l1.5 3.5-1.75 1.25a8 8 0 004 4L11 9.5 14.5 11v3A1 1 0 0113 15C6.373 15 1 9.627 1 3a1 1 0 011-1z"/></svg>
+          <span class="phone-text">434.528.1246</span>
+        </a>
+        <a href="shoemaker-contact.html" class="btn-primary">
+          <span class="label-full">Schedule a Conversation</span>
+          <span class="label-short">Contact</span>
+        </a>
+      </div>
+    </div>
+    <button class="nav-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Nav Drawer -->
+<div class="nav-mobile" id="navMobile">
+  <a href="#">Specializations</a>
+  <a href="about.html">About</a>
+  <a href="resources-index.html">Resources</a>
+  <a href="https://portal.shoemaker.cpa" target="_blank" rel="noopener">Client Login</a>
+</div>
+
+<!-- ========== ARTICLE HEADER ========== -->
+<header class="article-header">
+  <div class="container">
+    <div class="article-header-inner">
+      <span class="article-category fade-up">Business Advisory</span>
+      <h1 class="fade-up delay-1">What business owners get wrong about entity structure</h1>
+      <p class="article-dek fade-up delay-2">The LLC isn't a tax strategy. It's a container. Most owners set it up once and never ask whether it still fits what the business has become.</p>
+      <div class="article-meta fade-up delay-3">
+        <span class="meta-author">Luke Shoemaker, CPA</span>
+        <div class="meta-divider"></div>
+        <span class="meta-date">March 12, 2026</span>
+        <div class="meta-divider"></div>
+        <span class="meta-read-time">6 min read</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ========== ARTICLE BODY ========== -->
+<section class="article-body-section">
+  <div class="container">
+    <div class="article-prose">
+
+      <a href="resources-index.html" class="article-back">
+        <svg viewBox="0 0 16 16"><path d="M13 8H3M7 4L3 8l4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back to Resources
+      </a>
+
+      <p>When someone starts a business, the first call is usually to a lawyer or an accountant to set up an LLC. That's a reasonable first step. The LLC is cheap to form, easy to maintain, and provides personal liability protection. It checks the boxes. The problem is what happens next: nothing. The entity gets filed, the operating agreement goes in a drawer, and the business grows, sometimes significantly, inside a structure that was never designed for where it ended up.</p>
+
+      <p>I've worked with business owners who built profitable companies generating seven figures a year, still operating as a single-member LLC taxed as a sole proprietor, paying self-employment tax on every dollar of net income. No one ever told them there was a better option. Or if someone did mention an S-corp, it wasn't explained clearly enough to act on.</p>
+
+      <p>Entity structure isn't glamorous. But it has a real dollar impact. And for business owners at certain income levels, getting it wrong is an expensive mistake that compounds quietly every year.</p>
+
+      <h2>The LLC isn't the strategy; it's the container</h2>
+
+      <p>This is the most common point of confusion. An LLC is a legal entity, not a tax election. By default, the IRS doesn't care that you have an LLC. A single-member LLC is disregarded; it doesn't even file its own return. The income flows directly to Schedule C of your personal return, and you pay self-employment tax (15.3% on the first $168,600 in 2024, 2.9% beyond that) on all of it. If your business earns $300,000 in net income, you're paying full self-employment tax on the whole amount before federal and state income taxes apply on top of that.</p>
+
+      <p>The entity structure question is really about how you want the IRS to treat the business. And that's a separate decision from what legal form the business takes.</p>
+
+      <h2>When an S-corp election actually helps</h2>
+
+      <p>An LLC can elect to be taxed as an S-corporation. Most people who've heard of this concept know that it involves a "reasonable salary" for the owner and distributions beyond that. What they often don't fully understand is why that matters.</p>
+
+      <p>Here's the core mechanic: self-employment taxes apply to wages and self-employment income, not to S-corp distributions. So if you elect S-corp status and pay yourself a reasonable salary, say, $120,000 on $300,000 of business income, you're only paying self-employment-equivalent taxes (payroll taxes, in this case) on the $120,000, not on the full $300,000. The remaining $180,000 flows out as a distribution and isn't subject to those taxes.</p>
+
+      <div class="pull-quote">
+        <p>The S-corp election isn't a loophole. It's a legitimate planning tool, and the IRS has known about it for decades. The question is whether your income level makes the math work after you account for the added complexity.</p>
+      </div>
+
+      <p>The savings can be meaningful. On $180,000 of income that shifts from being subject to self-employment tax to not, you're looking at potential savings in the range of $10,000–$15,000 per year depending on your specific situation. That's real money. But it comes with costs: payroll processing, additional accounting complexity, a separate corporate return (Form 1120-S), and higher accounting fees. The math only works when the savings exceed the overhead.</p>
+
+      <p>As a general rule of thumb, the S-corp election starts making sense when net business income is consistently above $60,000–$80,000, and it becomes clearly worth it somewhere in the $100,000–$150,000+ range. Below that, the administrative costs often eat the savings. Above it, the math is usually compelling.</p>
+
+      <h2>The question most CPAs don't ask</h2>
+
+      <p>Beyond the SE tax question, entity structure affects several other things that often get overlooked: retirement plan contribution limits, the ability to bring on investors or co-owners, how the business gets valued at sale, and how your personal wealth plan interacts with business cash flows.</p>
+
+      <p>A business owner running a highly profitable S-corp has access to retirement contribution strategies, including solo 401(k) and defined benefit plans, that can shelter significant income from tax entirely. The combination of the right entity structure and the right retirement strategy can have a larger combined impact than either one alone.</p>
+
+      <p>This is where having a CPA who understands the whole picture becomes important. The entity question isn't just about this year's tax bill. It's about the ownership structure, the exit strategy, how the business fits into your broader wealth plan, and what you're building toward. Those decisions compound over time in both directions; structured well, they multiply. Structured poorly, the inefficiency adds up quietly, year after year, until someone finally does the math.</p>
+
+      <p>If you haven't reviewed your entity structure since the business was formed, or since income grew past a certain threshold, it's worth the conversation. The answers aren't always what people expect, and sometimes the right move is to leave things exactly as they are. But you should at least know why.</p>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== AUTHOR BIO ========== -->
+<section class="author-bio">
+  <div class="container">
+    <div class="author-bio-inner reveal">
+
+      <!-- INSERT PORTRAIT: Luke Shoemaker — replace this placeholder with actual portrait photo -->
+      <div class="author-portrait" role="img" aria-label="Portrait placeholder — INSERT: Luke Shoemaker photo">
+        <div class="author-portrait-label">INSERT<br>PORTRAIT<br>Luke S.</div>
+      </div>
+
+      <div class="author-bio-content">
+        <div class="author-bio-byline">Written by</div>
+        <div class="author-bio-name">Luke Shoemaker, CPA</div>
+        <div class="author-bio-text">
+          <p>Luke is the founder of Shoemaker CPA, a coordinated tax and wealth advisory firm based in Lynchburg, Virginia. He works with closely held family businesses and individuals with complex financial lives; people who need a CPA who understands not just their return, but their whole picture.</p>
+          <p>His practice sits at the intersection of tax strategy, business advisory, and financial planning, which means advice that's connected, not compartmentalized.</p>
+        </div>
+        <button class="btn-primary">Schedule a Conversation</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== RELATED ARTICLES ========== -->
+<section class="related-articles">
+  <div class="container">
+    <div class="related-header reveal">
+      <div class="related-label">More from the firm</div>
+      <h2 class="related-heading">Keep reading</h2>
+    </div>
+
+    <div class="related-grid">
+
+      <!-- Related 1 -->
+      <article class="article-card reveal">
+        <div class="card-category">Tax Planning</div>
+        <h3>When a Roth conversion actually makes sense</h3>
+        <p class="card-excerpt">Everyone has heard that Roth conversions are a good idea. The question worth asking is: good for whom, and under what circumstances?</p>
+        <div class="card-meta">
+          <span class="card-author">Luke Shoemaker, CPA</span>
+          <span class="card-date">February 28, 2026</span>
+        </div>
+        <a href="resources-article.html" class="card-read-link">
+          Read article
+          <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </article>
+
+      <!-- Related 2 -->
+      <article class="article-card reveal">
+        <div class="card-category">Multifamily Office</div>
+        <h3>What coordinated tax and wealth planning looks like in practice</h3>
+        <p class="card-excerpt">Having a CPA and a financial advisor is common. Having them actually talk to each other and agree on a plan first is something else.</p>
+        <div class="card-meta">
+          <span class="card-author">Luke Shoemaker, CPA</span>
+          <span class="card-date">February 14, 2026</span>
+        </div>
+        <a href="resources-article.html" class="card-read-link">
+          Read article
+          <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </article>
+
+      <!-- Related 3 -->
+      <article class="article-card reveal">
+        <div class="card-category">Business Advisory</div>
+        <h3>Succession planning isn't just about who gets the business</h3>
+        <p class="card-excerpt">The transfer of a family business involves tax exposure, family dynamics, valuation disputes, and liquidity questions, often all at once.</p>
+        <div class="card-meta">
+          <span class="card-author">Luke Shoemaker, CPA</span>
+          <span class="card-date">January 15, 2026</span>
+        </div>
+        <a href="resources-article.html" class="card-read-link">
+          Read article
+          <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== NEWSLETTER CTA ========== -->
+<!-- DEVELOPER NOTE: Connect this form to your newsletter platform at build time. -->
+<section class="newsletter-cta">
+  <div class="container">
+    <div class="newsletter-cta-inner reveal">
+      <h2>Get insights worth reading.</h2>
+      <p class="cta-sub">No spam, no noise. Just useful writing when it's ready.</p>
+      <form class="cta-form" action="#" method="post">
+        <input type="email" name="email" placeholder="your@email.com" autocomplete="email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+      <p class="cta-privacy">Unsubscribe anytime. We don't share your information.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="footer-main">
+    <div class="footer-brand-col">
+      <img src="FooterAsset.svg" alt="" class="footer-watermark">
+    </div>
+    <div class="footer-links-col">
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="multifamily-office.html">Multifamily Office</a>
+        <a href="business-advisory.html">Business Advisory</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="about.html">About</a>
+        <a href="resources-index.html">Resources</a>
+      </div>
+      <div class="footer-col">
+        <h4>Client</h4>
+        <a href="https://portal.shoemaker.cpa" target="_blank" rel="noopener">Client Login</a>
+        <a href="shoemaker-contact.html">Schedule a Conversation</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="mailto:luke@shoemaker.cpa">luke@shoemaker.cpa</a>
+        <a href="https://www.linkedin.com/in/lukeshoemaker/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Copyright 2026 Shoemaker CPA</p>
+    <div class="footer-social">
+      <a href="https://www.linkedin.com/in/lukeshoemaker/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<!-- ========== JAVASCRIPT ========== -->
+<script>
+// Nav scroll behavior
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Mobile nav toggle
+const navToggle = document.getElementById('navToggle');
+const navMobile = document.getElementById('navMobile');
+navToggle.addEventListener('click', () => {
+  navMobile.classList.toggle('open');
+});
+
+// Scroll reveal via IntersectionObserver
+const reveals = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(el => revealObserver.observe(el));
+
+// Related article cards staggered fade-in
+const cards = document.querySelectorAll('.article-card');
+const cardObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }, (i % 3) * 120);
+      cardObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+cards.forEach(card => {
+  card.style.opacity = '0';
+  card.style.transform = 'translateY(16px)';
+  card.style.transition = 'opacity 600ms ease-out, transform 600ms ease-out';
+  cardObserver.observe(card);
+});
+</script>
+
+</body>
+</html>
