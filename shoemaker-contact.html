@@ -1556,7 +1556,8 @@ a { text-decoration: none; color: inherit; }
       </div>
 
       <!-- NOTE: Connect to a form handler at build time (Webflow native forms, Netlify Forms, or similar) -->
-      <form class="contact-form reveal" name="contact" method="POST" action="#">
+      <form class="contact-form reveal" name="contact" method="POST" action="https://formspree.io/f/mreoqoyd">
+        <input type="hidden" name="_next" value="https://shoemaker-cpa.vercel.app/index.html">
         <div class="form-row">
           <div class="form-field">
             <label for="name">Full name</label>
