@@ -1484,8 +1484,8 @@ a { text-decoration: none; color: inherit; }
       <!-- LEFT: Text -->
       <div class="contact-hero-content">
         <div class="eyebrow fade-up">Contact</div>
-        <h1 class="fade-up delay-1">Let's start with a conversation.</h1>
-        <p class="contact-hero-sub fade-up delay-2">We don't do cold proposals. Schedule a conversation and we'll take it from there, straightforward and on your timeline.</p>
+        <h1 class="fade-up delay-1">Let's have a conversation.</h1>
+        <p class="contact-hero-sub fade-up delay-2">We work with a limited number of clients on an ongoing basis, as well as select strategic projects (e.g. business sales and transactions). Our firm is not a tax preparation service. If you're looking for one-time or low-cost filing, we're not the right fit.</p>
         <div class="hero-contact-links fade-up delay-3">
           <a href="mailto:luke@shoemaker.cpa">luke@shoemaker.cpa</a>
           <span class="hero-contact-sep">·</span>
@@ -1583,10 +1583,57 @@ a { text-decoration: none; color: inherit; }
           <label for="inquiry">What brings you here?</label>
           <select id="inquiry" name="Inquiry Type" required>
             <option value="" disabled selected>Select one…</option>
-            <option value="multifamily-office">Multifamily Office inquiry</option>
-            <option value="business-advisory">Business Advisory inquiry</option>
-            <option value="existing-client">Existing client question</option>
+            <option value="ongoing-advisory">Ongoing advisory relationship (tax + financial strategy)</option>
+            <option value="business-tax">Business tax and advisory support</option>
+            <option value="specific-tax-issue">Help with a specific tax issue</option>
+            <option value="tax-return">Just need a tax return prepared</option>
+            <option value="existing-client">Existing client</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="situation">What best describes your situation?</label>
+          <select id="situation" name="Situation" required>
+            <option value="" disabled selected>Select one…</option>
+            <option value="business-ongoing">I own a business and need ongoing support</option>
+            <option value="multiple-entities">I have multiple entities, investments, or moving parts</option>
+            <option value="major-event">I'm dealing with a major financial event or transition</option>
+            <option value="more-complex">My situation has gotten more complex over time</option>
+            <option value="straightforward">My situation is relatively straightforward</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="pricing">Our clients typically invest $3,000 to $10,000+ annually for ongoing tax strategy and financial planning. Are you comfortable with that range?</label>
+          <select id="pricing" name="Pricing Comfort" required>
+            <option value="" disabled selected>Select one…</option>
+            <option value="yes">Yes</option>
+            <option value="maybe">Maybe - I'd want to learn more</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="prompt">What prompted you to reach out now?</label>
+          <select id="prompt" name="Prompt" required>
+            <option value="" disabled selected>Select one…</option>
+            <option value="major-event">A major event (sale, exit, inheritance, or liquidity event)</option>
+            <option value="tax-surprise">A tax surprise or growing tax bill</option>
+            <option value="underserved">Feeling underserved by my current CPA</option>
+            <option value="fresh-start">Starting fresh at a new level of complexity</option>
             <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="referral">How did you find us?</label>
+          <select id="referral" name="Referral Source" required>
+            <option value="" disabled selected>Select one…</option>
+            <option value="linkedin">LinkedIn</option>
+            <option value="knew-luke">I already knew Luke</option>
+            <option value="email">Email</option>
+            <option value="ai-search">AI search</option>
+            <option value="blog-article">Blog article</option>
           </select>
         </div>
 
@@ -1601,6 +1648,22 @@ a { text-decoration: none; color: inherit; }
         </div>
       </form>
 
+    </div>
+  </div>
+</section>
+
+<!-- ========== LOCATION BAR ========== -->
+<section class="location-bar">
+  <div class="container">
+    <div class="location-bar-inner">
+      <span class="location-firm-name">Shoemaker CPA</span>
+      <div class="location-details">
+        <span class="location-detail">620 Railroad Avenue Unit B, Bedford, VA 24523</span>
+        <span class="location-separator"></span>
+        <span class="location-detail"><a href="tel:4345281246">434.528.1246</a></span>
+        <span class="location-separator"></span>
+        <span class="location-detail"><a href="mailto:luke@shoemaker.cpa">luke@shoemaker.cpa</a></span>
+      </div>
     </div>
   </div>
 </section>
