@@ -2,8 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact — Shoemaker CPA</title>
+<title>Contact Shoemaker CPA | Lynchburg, VA</title>
+<link rel="canonical" href="shoemaker-contact.html">
+<meta name="description" content="Schedule a conversation with Shoemaker CPA in Lynchburg, VA. No unscheduled calls. Book a time that works for you and we will come prepared.">
+<link rel="icon" type="image/png" href="https://shoemaker.cpa/webclip.png">
+<link rel="apple-touch-icon" href="https://shoemaker.cpa/webclip.png">
 <!-- Tiempos Headline — local font files -->
 <style>
 @font-face {
@@ -116,6 +121,7 @@
    RESET & BASE
    ========================================= */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { overflow-x: hidden; }
 html { scroll-behavior: smooth; }
 body {
   font-family: var(--font-body);
@@ -285,6 +291,41 @@ a { text-decoration: none; color: inherit; }
   transform: translateY(-2px);
 }
 
+/* Button wrapper — controls background behind the rotating border ring */
+.btn-wrap {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 2px;
+  border-radius: 52px;
+  vertical-align: middle;
+  transition: transform 0.2s ease-out;
+}
+.btn-wrap-primary {
+  background: linear-gradient(180deg, var(--color-cta), var(--color-cta-hover));
+}
+.btn-wrap-ghost {
+  background: linear-gradient(180deg, #fff, #f5f5fa);
+}
+.btn-wrap-ghost-light {
+  background: rgba(255,255,255,0.18);
+}
+/* Suppress wrapper bg on light backgrounds so ring doesn't show against ice/white bg */
+.approach .btn-wrap-primary,
+.section-light .btn-wrap-primary,
+.section-white .btn-wrap-primary {
+  background: transparent;
+}
+.btn-wrap:has(:hover) {
+  transform: translateY(-2px);
+}
+/* Remove transform from the button itself since the wrapper now handles it */
+.btn-primary:hover,
+.btn-ghost:hover,
+.btn-ghost-light:hover,
+.btn-ghost-outline:hover {
+  transform: none !important;
+}
+
 /* =========================================
    ANIMATIONS
    ========================================= */
@@ -350,6 +391,7 @@ a { text-decoration: none; color: inherit; }
   height: 28px;
   width: auto;
 }
+.nav-logo-mobile { display: none; }
 .footer-logo-img {
   height: 24px;
   width: auto;
@@ -480,6 +522,36 @@ a { text-decoration: none; color: inherit; }
   margin: 5px 0;
   transition: all 200ms ease;
 }
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile nav drawer */
+.nav-mobile {
+  display: none;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  background: var(--color-navy);
+  padding: 8px 32px 32px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  z-index: 999;
+  box-shadow: 0 8px 24px rgba(0,0,38,0.3);
+}
+.nav-mobile.open { display: block; }
+.nav-mobile a {
+  display: block;
+  font-size: 17px;
+  color: rgba(255,255,255,0.8);
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+.nav-mobile a:last-child { border-bottom: none; }
+.nav-mobile a:hover { color: #fff; }
+.nav-mobile-cta { color: var(--color-sky) !important; font-weight: 600; }
 
 /* =========================================
    CONTACT HERO
@@ -519,41 +591,70 @@ a { text-decoration: none; color: inherit; }
   position: relative;
   z-index: 2;
 }
+
+/* Form card — white overlay in hero right column */
+.form-card {
+  background: #fff;
+  border-radius: 1.25rem;
+  box-shadow: 0 32px 72px rgba(0,0,38,0.22), 0 8px 28px rgba(0,0,38,0.12);
+  padding: 40px;
+  margin-bottom: -340px;
+  position: relative;
+  z-index: 10;
+}
+.form-card .form-field label {
+  color: rgba(0,0,38,0.5);
+}
+.form-card .form-field input,
+.form-card .form-field select,
+.form-card .form-field textarea {
+  color: var(--color-midnight);
+  background-color: #f7f9fc;
+  border: 1px solid rgba(17,96,173,0.15);
+}
+.form-card .form-field input::placeholder,
+.form-card .form-field textarea::placeholder {
+  color: rgba(0,0,38,0.3);
+}
+.form-card .form-field select {
+  color: var(--color-midnight);
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(0,0,38,0.4)' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-color: #f7f9fc;
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+}
+.form-card .form-field select option {
+  background: #fff;
+  color: var(--color-midnight);
+}
+.form-card .form-field input:focus,
+.form-card .form-field select:focus,
+.form-card .form-field textarea:focus {
+  border-color: var(--color-blue);
+  background-color: #fff;
+}
+.form-card .form-disclaimer {
+  color: rgba(0,0,38,0.35);
+}
+.form-card-title {
+  font-family: var(--font-headline);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--color-midnight);
+  letter-spacing: -0.01em;
+  margin-bottom: 24px;
+}
+.form-card .form-confirmed {
+  background: var(--color-ice) !important;
+  border: 1px solid rgba(17,96,173,0.15) !important;
+}
+.form-card .form-confirmed h3 { color: var(--color-midnight) !important; }
+.form-card .form-confirmed p { color: rgba(0,0,38,0.55) !important; }
 .contact-hero-content {
   position: relative;
   padding-top: 16px;
 }
-.calendly-placeholder {
-  background: #fff;
-  border-radius: 1.25rem;
-  height: 620px;
-  box-shadow: 0 32px 80px rgba(0,0,38,0.26), 0 8px 32px rgba(0,0,38,0.15);
-  margin-bottom: -320px;
-  position: relative;
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  color: rgba(0,0,38,0.3);
-}
-.calendly-placeholder svg {
-  width: 40px;
-  height: 40px;
-  opacity: 0.25;
-}
-.calendly-placeholder p {
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: rgba(0,0,38,0.3);
-}
-.calendly-placeholder span {
-  font-size: 12px;
-  color: rgba(0,0,38,0.2);
-}
+
 .contact-hero .eyebrow {
   color: var(--color-sky);
   margin-bottom: 24px;
@@ -614,15 +715,6 @@ a { text-decoration: none; color: inherit; }
 /* =========================================
    TWO-PATH LAYOUT
    ========================================= */
-.calendly-embed-wrapper {
-  border-radius: 1.25rem;
-  overflow: hidden;
-  box-shadow: 0 32px 72px rgba(0,0,38,0.22), 0 8px 28px rgba(0,0,38,0.12);
-  background: #fff;
-  margin-bottom: -340px;
-  position: relative;
-  z-index: 10;
-}
 
 .two-path {
   background: var(--color-bg-white);
@@ -997,8 +1089,8 @@ a { text-decoration: none; color: inherit; }
 @media (max-width: 1024px) {
   .contact-hero h1 { font-size: 46px; }
   .contact-hero-inner { grid-template-columns: 1fr; gap: 48px; }
-  .calendly-placeholder { height: 520px; margin-bottom: -240px; }
-  .two-path { padding-top: 280px; }
+  .form-card { margin-bottom: -200px; }
+  .two-path { padding-top: 240px; }
   .path-grid { gap: 20px; }
   .contact-form-inner { grid-template-columns: 1fr; gap: 48px; }
   .form-intro p { max-width: 100%; }
@@ -1006,20 +1098,23 @@ a { text-decoration: none; color: inherit; }
 }
 @media (max-width: 768px) {
   .nav-links { display: none; }
+  .btn-phone { width: 42px; height: 42px; padding: 0; border-radius: 50%; justify-content: center; }
   .btn-phone .phone-text { display: none; }
-  .label-full { display: inline; }
-.label-short { display: none; }
-.btn-phone .phone-icon { display: block; }
-  .btn-phone { padding: 10px 12px; }
+  .btn-phone .phone-icon { display: block; width: 20px; height: 20px; }
   .label-full { display: none; }
   .label-short { display: inline; }
-  .nav-toggle { display: block; }
+  .nav-inner { justify-content: flex-start; }
+  .nav-utility { margin-left: auto; }
+  .nav-toggle { display: block; margin-left: 16px; }
   .nav-utility .client-login { display: none; }
+  .nav-cta-group { gap: 16px; }
+  .nav-logo-desktop { display: none; }
+  .nav-logo-mobile { display: block; }
   .contact-hero { padding: 120px 0 64px; }
   .contact-hero h1 { font-size: 36px; }
   .contact-hero-sub { font-size: 16px; }
   .hero-accent, .hero-accent-2 { display: none; }
-  .calendly-placeholder { margin-bottom: 0; height: 480px; box-shadow: 0 8px 32px rgba(0,0,38,0.18); }
+  .form-card { margin-bottom: 0; padding: 32px 24px; }
   .two-path { padding-top: 48px; padding-bottom: 64px; }
   .path-grid { grid-template-columns: 1fr; }
   .path-card { padding: 40px 32px; }
@@ -1119,6 +1214,7 @@ a { text-decoration: none; color: inherit; }
   height: 28px;
   width: auto;
 }
+.nav-logo-mobile { display: none; }
 .footer-logo-img {
   height: 24px;
   width: auto;
@@ -1402,8 +1498,13 @@ a { text-decoration: none; color: inherit; }
 }
 @media (max-width: 768px) {
   .nav-links { display: none; }
-  .nav-toggle { display: block; }
+  .nav-inner { justify-content: flex-start; }
+  .nav-utility { margin-left: auto; }
+  .nav-toggle { display: block; margin-left: 16px; }
   .nav-utility .client-login { display: none; }
+  .nav-cta-group { gap: 16px; }
+  .nav-logo-desktop { display: none; }
+  .nav-logo-mobile { display: block; }
   .btn-phone .phone-text { display: none; }
   .btn-phone .phone-icon { display: block; }
   .btn-phone { padding: 10px 12px; }
@@ -1444,11 +1545,12 @@ a { text-decoration: none; color: inherit; }
 <nav class="nav" id="nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
-      <img src="Logo main.svg" alt="Shoemaker CPA" class="nav-logo-img">
+      <img src="Logo main.svg" alt="Shoemaker CPA" class="nav-logo-img nav-logo-desktop">
+      <img src="FooterAsset.svg" alt="Shoemaker CPA" class="nav-logo-img nav-logo-mobile">
     </a>
     <ul class="nav-links">
       <li class="nav-dropdown">
-        <a href="#" class="nav-dropdown-trigger">Specializations <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="#" class="nav-dropdown-trigger">Specializations <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
         <ul class="nav-dropdown-menu">
           <li><a href="multifamily-office.html">Multifamily Office</a></li>
           <li><a href="business-advisory.html">Business Advisory</a></li>
@@ -1458,16 +1560,16 @@ a { text-decoration: none; color: inherit; }
       <li><a href="resources-index.html">Resources</a></li>
     </ul>
     <div class="nav-utility">
-      <a href="https://portal.shoemaker.cpa" class="client-login" target="_blank" rel="noopener">Client Login</a>
+      <a href="https://portal.shoemaker.cpa/" class="client-login" target="_blank" rel="noopener">Client Login</a>
       <div class="nav-cta-group">
         <a href="tel:4345281246" class="btn-phone">
-          <svg class="phone-icon" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h3l1.5 3.5-1.75 1.25a8 8 0 004 4L11 9.5 14.5 11v3A1 1 0 0113 15C6.373 15 1 9.627 1 3a1 1 0 011-1z"/></svg>
+          <svg class="phone-icon" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h3l1.5 3.5-1.75 1.25a8 8 0 004 4L11 9.5 14.5 11v3A1 1 0 0113 15C6.373 15 1 9.627 1 3a1 1 0 011-1z"></path></svg>
           <span class="phone-text">434.528.1246</span>
         </a>
-        <a href="shoemaker-contact.html" class="btn-primary">
+        <div class="btn-wrap btn-wrap-primary"><a href="shoemaker-contact.html" class="btn-primary">
           <span class="label-full">Schedule a Conversation</span>
           <span class="label-short">Contact</span>
-        </a>
+        </a></div>
       </div>
     </div>
     <button class="nav-toggle" aria-label="Menu">
@@ -1475,6 +1577,14 @@ a { text-decoration: none; color: inherit; }
     </button>
   </div>
 </nav>
+<div class="nav-mobile" id="navMobile">
+  <a href="multifamily-office.html">Multifamily Office</a>
+  <a href="business-advisory.html">Business Advisory</a>
+  <a href="about.html">About</a>
+  <a href="resources-index.html">Resources</a>
+  <a href="https://portal.shoemaker.cpa/" target="_blank" rel="noopener">Client Login</a>
+  <a href="shoemaker-contact.html" class="nav-mobile-cta">Schedule a Conversation</a>
+</div>
 
 <!-- ========== HERO ========== -->
 <section class="contact-hero">
@@ -1488,15 +1598,94 @@ a { text-decoration: none; color: inherit; }
         <p class="contact-hero-sub fade-up delay-2">We work with a limited number of clients on an ongoing basis, as well as select strategic projects (e.g. business sales and transactions). Our firm is not a tax preparation service. If you're looking for one-time or low-cost filing, we're not the right fit.</p>
         <div class="hero-contact-links fade-up delay-3">
           <a href="mailto:luke@shoemaker.cpa">luke@shoemaker.cpa</a>
-          <span class="hero-contact-sep">·</span>
-          <a href="#contact-form">Or fill out the form below</a>
         </div>
       </div>
 
-      <!-- RIGHT: Calendly inline embed -->
-      <div class="calendly-embed-wrapper reveal">
-        <div class="calendly-inline-widget" data-url="https://calendly.com/luke-shoemaker-graystripesadvisors/prospectmeeting" style="min-width:320px;height:700px;"></div>
-        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+      <!-- RIGHT: Contact form card -->
+      <div class="form-card reveal visible" id="contact-form">
+        <p class="form-card-title">Send a message.</p>
+        <div class="form-confirmed" id="formConfirmed" style="display:none;text-align:center;padding:48px 24px;border-radius:1rem;">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style="margin:0 auto 20px;display:block;"><circle cx="24" cy="24" r="23" stroke="var(--color-sky)" stroke-width="1.5"></circle><path d="M14 24l7 7 13-13" stroke="var(--color-sky)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          <h3 style="font-family:var(--font-headline);font-weight:400;font-size:28px;margin-bottom:12px;">Confirmed.</h3>
+          <p style="font-size:15px;max-width:320px;margin:0 auto;">We received your message and will be in touch within one business day.</p>
+        </div>
+        <form class="contact-form" id="contactForm" name="contact" method="POST" action="https://formspree.io/f/mreoqoyd">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="name">Full name</label>
+              <input type="text" id="name" name="name" placeholder="Jane Smith" required="">
+            </div>
+            <div class="form-field">
+              <label for="email">Email address</label>
+              <input type="email" id="email" name="email" placeholder="jane@example.com" required="">
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="phone">Phone <span style="font-weight:400;text-transform:none;letter-spacing:0;color:rgba(0,0,38,0.3);">(optional)</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="(540) 555-0100">
+          </div>
+          <div class="form-field">
+            <label for="inquiry">What brings you here?</label>
+            <select id="inquiry" name="Inquiry Type" required="">
+              <option value="" disabled="" selected="">Select one…</option>
+              <option value="ongoing-advisory">Ongoing advisory relationship (tax + financial strategy)</option>
+              <option value="business-tax">Business tax and advisory support</option>
+              <option value="specific-tax-issue">Help with a specific tax issue</option>
+              <option value="tax-return">Just need a tax return prepared</option>
+              <option value="existing-client">Existing client</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="situation">What best describes your situation?</label>
+            <select id="situation" name="Situation" required="">
+              <option value="" disabled="" selected="">Select one…</option>
+              <option value="business-ongoing">I own a business and need ongoing support</option>
+              <option value="multiple-entities">I have multiple entities, investments, or moving parts</option>
+              <option value="major-event">I'm dealing with a major financial event or transition</option>
+              <option value="more-complex">My situation has gotten more complex over time</option>
+              <option value="straightforward">My situation is relatively straightforward</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="pricing">Our clients typically invest $3,000 to $10,000+ annually for ongoing tax strategy and financial planning. Are you comfortable with that range?</label>
+            <select id="pricing" name="Pricing Comfort" required="">
+              <option value="" disabled="" selected="">Select one…</option>
+              <option value="yes">Yes</option>
+              <option value="maybe">Maybe - I'd want to learn more</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="prompt">What prompted you to reach out now?</label>
+            <select id="prompt" name="Prompt" required="">
+              <option value="" disabled="" selected="">Select one…</option>
+              <option value="major-event">A major event (sale, exit, inheritance, or liquidity event)</option>
+              <option value="tax-surprise">A tax surprise or growing tax bill</option>
+              <option value="underserved">Feeling underserved by my current CPA</option>
+              <option value="fresh-start">Starting fresh at a new level of complexity</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="referral">How did you find us?</label>
+            <select id="referral" name="Referral Source" required="">
+              <option value="" disabled="" selected="">Select one…</option>
+              <option value="linkedin">LinkedIn</option>
+              <option value="knew-luke">I already knew Luke</option>
+              <option value="email">Email</option>
+              <option value="ai-search">AI search</option>
+              <option value="blog-article">Blog article</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="3" placeholder="Tell us what&#39;s on your mind." required=""></textarea>
+          </div>
+          <div class="form-submit-row">
+            <div class="btn-wrap btn-wrap-primary"><button type="submit" class="btn-primary">Send Message</button></div>
+            <p class="form-disclaimer">We do not share your information. Responses typically within one business day.</p>
+          </div>
+        </form>
       </div>
 
     </div>
@@ -1515,10 +1704,10 @@ a { text-decoration: none; color: inherit; }
         <div class="eyebrow">Prospective clients</div>
         <h2>Start with a scheduled conversation.</h2>
         <p>The best way to begin is to get time on the calendar. Luke reviews every inquiry personally. If we're a fit, we'll tell you directly. If we're not, we'll tell you that too.</p>
-        <a href="#contact-form" class="btn-primary">
+        <div class="btn-wrap btn-wrap-primary"><a href="#contact-form" class="btn-primary">
           Fill out a form
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </a></div>
         <p class="path-card-secondary-email">Prefer email? Reach us at <a href="mailto:luke@shoemaker.cpa">luke@shoemaker.cpa</a></p>
       </div>
 
@@ -1528,131 +1717,24 @@ a { text-decoration: none; color: inherit; }
         <h2>Your portal is the fastest path.</h2>
         <p>For existing clients, the fastest route is through your client portal. You can also email directly or book time if you need a dedicated conversation.</p>
         <!-- TODO: Replace href with TaxDome portal link -->
-        <a href="#" class="btn-ghost">
+        <div class="btn-wrap btn-wrap-ghost"><a href="#" class="btn-ghost">
           Client Login
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </a></div>
 
         <div class="path-divider"></div>
 
         <p class="path-contact-line">Email: <a href="mailto:luke@shoemaker.cpa">luke@shoemaker.cpa</a></p>
         <p class="path-contact-line">Phone: <a href="tel:4345281246">434.528.1246</a> (Virginia office receptionist)</p>
-        <p class="path-card-note">This number reaches the front desk. Prospective clients are not scheduled over the phone, please use the Calendly link above to book a conversation. Luke does not take unscheduled calls.</p>
+        <p class="path-card-note">This number reaches the front desk. Prospective clients are not scheduled over the phone. Luke does not take unscheduled calls.</p>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- ========== CONTACT FORM ========== -->
-<section class="contact-form-section" id="contact-form">
-  <div class="container">
-    <div class="contact-form-inner">
 
-      <div class="form-intro reveal">
-        <div class="eyebrow">Send a message</div>
-        <h2>Not ready to schedule? Send a note.</h2>
-        <p>We'll get back to you within one business day.</p>
-      </div>
-
-      <!-- NOTE: Connect to a form handler at build time (Webflow native forms, Netlify Forms, or similar) -->
-      <div class="form-confirmed" id="formConfirmed" style="display:none;text-align:center;padding:64px 40px;background:var(--color-midnight);border-radius:1.5rem;border:1px solid rgba(72,164,213,0.2);">
-        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style="margin:0 auto 20px;display:block;"><circle cx="24" cy="24" r="23" stroke="var(--color-sky)" stroke-width="1.5"/><path d="M14 24l7 7 13-13" stroke="var(--color-sky)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <h3 style="font-family:var(--font-headline);font-weight:400;font-size:32px;color:#fff;margin-bottom:12px;">Confirmed</h3>
-        <p style="color:rgba(255,255,255,0.6);font-size:16px;max-width:360px;margin:0 auto;">We received your message and will be in touch within one business day.</p>
-      </div>
-
-      <form class="contact-form reveal" id="contactForm" name="contact" method="POST" action="https://formspree.io/f/mreoqoyd">
-        <div class="form-row">
-          <div class="form-field">
-            <label for="name">Full name</label>
-            <input type="text" id="name" name="name" placeholder="Jane Smith" required>
-          </div>
-          <div class="form-field">
-            <label for="email">Email address</label>
-            <input type="email" id="email" name="email" placeholder="jane@example.com" required>
-          </div>
-        </div>
-
-        <div class="form-field">
-          <label for="phone">Phone <span style="font-weight:400;text-transform:none;letter-spacing:0;color:rgba(255,255,255,0.3);">(optional)</span></label>
-          <input type="tel" id="phone" name="phone" placeholder="(540) 555-0100">
-        </div>
-
-        <div class="form-field">
-          <label for="inquiry">What brings you here?</label>
-          <select id="inquiry" name="Inquiry Type" required>
-            <option value="" disabled selected>Select one…</option>
-            <option value="ongoing-advisory">Ongoing advisory relationship (tax + financial strategy)</option>
-            <option value="business-tax">Business tax and advisory support</option>
-            <option value="specific-tax-issue">Help with a specific tax issue</option>
-            <option value="tax-return">Just need a tax return prepared</option>
-            <option value="existing-client">Existing client</option>
-          </select>
-        </div>
-
-        <div class="form-field">
-          <label for="situation">What best describes your situation?</label>
-          <select id="situation" name="Situation" required>
-            <option value="" disabled selected>Select one…</option>
-            <option value="business-ongoing">I own a business and need ongoing support</option>
-            <option value="multiple-entities">I have multiple entities, investments, or moving parts</option>
-            <option value="major-event">I'm dealing with a major financial event or transition</option>
-            <option value="more-complex">My situation has gotten more complex over time</option>
-            <option value="straightforward">My situation is relatively straightforward</option>
-          </select>
-        </div>
-
-        <div class="form-field">
-          <label for="pricing">Our clients typically invest $3,000 to $10,000+ annually for ongoing tax strategy and financial planning. Are you comfortable with that range?</label>
-          <select id="pricing" name="Pricing Comfort" required>
-            <option value="" disabled selected>Select one…</option>
-            <option value="yes">Yes</option>
-            <option value="maybe">Maybe - I'd want to learn more</option>
-            <option value="no">No</option>
-          </select>
-        </div>
-
-        <div class="form-field">
-          <label for="prompt">What prompted you to reach out now?</label>
-          <select id="prompt" name="Prompt" required>
-            <option value="" disabled selected>Select one…</option>
-            <option value="major-event">A major event (sale, exit, inheritance, or liquidity event)</option>
-            <option value="tax-surprise">A tax surprise or growing tax bill</option>
-            <option value="underserved">Feeling underserved by my current CPA</option>
-            <option value="fresh-start">Starting fresh at a new level of complexity</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-
-        <div class="form-field">
-          <label for="referral">How did you find us?</label>
-          <select id="referral" name="Referral Source" required>
-            <option value="" disabled selected>Select one…</option>
-            <option value="linkedin">LinkedIn</option>
-            <option value="knew-luke">I already knew Luke</option>
-            <option value="email">Email</option>
-            <option value="ai-search">AI search</option>
-            <option value="blog-article">Blog article</option>
-          </select>
-        </div>
-
-        <div class="form-field">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="4" placeholder="Tell us what's on your mind." required></textarea>
-        </div>
-
-        <div class="form-submit-row">
-          <button type="submit" class="btn-primary">Send Message</button>
-          <p class="form-disclaimer">We do not share your information. Responses typically within one business day.</p>
-        </div>
-      </form>
-
-    </div>
-  </div>
-</section>
-
-<!-- ========== LOCATION BAR ========== -->
+<!-- ========== FOOTER ========== -->
 <section class="location-bar">
   <div class="container">
     <div class="location-bar-inner">
@@ -1668,7 +1750,6 @@ a { text-decoration: none; color: inherit; }
   </div>
 </section>
 
-<!-- ========== FOOTER ========== -->
 <footer class="footer">
   <div class="footer-main">
     <div class="footer-brand-col">
@@ -1687,7 +1768,7 @@ a { text-decoration: none; color: inherit; }
       </div>
       <div class="footer-col">
         <h4>Client</h4>
-        <a href="https://portal.shoemaker.cpa" target="_blank" rel="noopener">Client Login</a>
+        <a href="https://portal.shoemaker.cpa/" target="_blank" rel="noopener">Client Login</a>
         <a href="shoemaker-contact.html">Schedule a Conversation</a>
       </div>
       <div class="footer-col">
@@ -1700,7 +1781,7 @@ a { text-decoration: none; color: inherit; }
   <div class="footer-bottom">
     <p>Copyright 2026 Shoemaker CPA</p>
     <div class="footer-social">
-      <a href="https://www.linkedin.com/in/lukeshoemaker/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+      <a href="https://www.linkedin.com/in/lukeshoemaker/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg></a>
     </div>
   </div>
 </footer>
@@ -1739,6 +1820,14 @@ window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 40);
 });
 
+// Mobile nav toggle
+const navToggle = document.querySelector('.nav-toggle');
+const navMobile = document.getElementById('navMobile');
+navToggle.addEventListener('click', () => {
+  navToggle.classList.toggle('open');
+  navMobile.classList.toggle('open');
+});
+
 // Intersection Observer — scroll reveal
 const reveals = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
@@ -1751,5 +1840,6 @@ const observer = new IntersectionObserver((entries) => {
 reveals.forEach(el => observer.observe(el));
 </script>
 
-</body>
-</html>
+
+
+</body></html>
