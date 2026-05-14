@@ -1339,6 +1339,58 @@ a { text-decoration: none; color: inherit; }
 }
 
 
+
+/* ========== ARTICLE AUTHOR CTA ========== */
+.article-author-cta {
+  background: var(--color-navy);
+  padding: 72px 0;
+}
+.article-author-cta-inner {
+  display: flex;
+  gap: 48px;
+  align-items: center;
+  max-width: 860px;
+  margin: 0 auto;
+}
+.article-author-photo {
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--color-sky);
+}
+.article-author-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.article-author-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-sky);
+  margin-bottom: 6px;
+}
+.article-author-name {
+  font-family: var(--font-headline);
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 14px;
+  color: #fff;
+}
+.article-author-text p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 28px;
+  max-width: 580px;
+}
+@media (max-width: 640px) {
+  .article-author-cta-inner { flex-direction: column; gap: 24px; }
+  .article-author-photo { width: 80px; height: 80px; }
+}
 </style>
 </head>
 <body>
@@ -1346,19 +1398,19 @@ a { text-decoration: none; color: inherit; }
 <!-- ========== NAVIGATION ========== -->
 <nav class="nav" id="nav">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo">
+    <a href="/" class="nav-logo">
       <img src="Logo main.svg" alt="Shoemaker CPA" class="nav-logo-img">
     </a>
     <ul class="nav-links">
       <li class="nav-dropdown">
         <a href="#" class="nav-dropdown-trigger">Specializations <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <ul class="nav-dropdown-menu">
-          <li><a href="multifamily-office.html">Multifamily Office</a></li>
-          <li><a href="business-advisory.html">Business Advisory</a></li>
+          <li><a href="multifamily-office">Multifamily Office</a></li>
+          <li><a href="business-advisory">Business Advisory</a></li>
         </ul>
       </li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="resources-index.html">Resources</a></li>
+      <li><a href="about">About</a></li>
+      <li><a href="resources-index">Resources</a></li>
     </ul>
     <div class="nav-utility">
       <a href="https://portal.shoemaker.cpa" class="client-login" target="_blank" rel="noopener">Client Login</a>
@@ -1367,7 +1419,7 @@ a { text-decoration: none; color: inherit; }
           <svg class="phone-icon" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h3l1.5 3.5-1.75 1.25a8 8 0 004 4L11 9.5 14.5 11v3A1 1 0 0113 15C6.373 15 1 9.627 1 3a1 1 0 011-1z"/></svg>
           <span class="phone-text">434.528.1246</span>
         </a>
-        <a href="shoemaker-contact.html" class="btn-primary">
+        <a href="shoemaker-contact" class="btn-primary">
           <span class="label-full">Schedule a Conversation</span>
           <span class="label-short">Contact</span>
         </a>
@@ -1382,8 +1434,8 @@ a { text-decoration: none; color: inherit; }
 <!-- Mobile Nav Drawer -->
 <div class="nav-mobile" id="navMobile">
   <a href="#">Specializations</a>
-  <a href="about.html">About</a>
-  <a href="resources-index.html">Resources</a>
+  <a href="about">About</a>
+  <a href="resources-index">Resources</a>
   <a href="https://portal.shoemaker.cpa" target="_blank" rel="noopener">Client Login</a>
 </div>
 
@@ -1410,7 +1462,7 @@ a { text-decoration: none; color: inherit; }
   <div class="container">
     <div class="article-prose">
 
-      <a href="resources-index.html" class="article-back">
+      <a href="resources-index" class="article-back">
         <svg viewBox="0 0 16 16"><path d="M13 8H3M7 4L3 8l4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
         Back to Resources
       </a>
@@ -1455,101 +1507,22 @@ a { text-decoration: none; color: inherit; }
   </div>
 </section>
 
-<!-- ========== AUTHOR BIO ========== -->
-<section class="author-bio">
+<!-- ========== AUTHOR CTA ========== -->
+<section class="article-author-cta">
   <div class="container">
-    <div class="author-bio-inner reveal">
-
-      <!-- INSERT PORTRAIT: Luke Shoemaker — replace this placeholder with actual portrait photo -->
-      <div class="author-portrait" role="img" aria-label="Portrait placeholder — INSERT: Luke Shoemaker photo">
-        <div class="author-portrait-label">INSERT<br>PORTRAIT<br>Luke S.</div>
+    <div class="article-author-cta-inner reveal">
+      <div class="article-author-photo">
+        <img src="luke-headshot.png" alt="Luke Shoemaker, CPA">
       </div>
-
-      <div class="author-bio-content">
-        <div class="author-bio-byline">Written by</div>
-        <div class="author-bio-name">Luke Shoemaker, CPA</div>
-        <div class="author-bio-text">
-          <p>Luke is the founder of Shoemaker CPA, a coordinated tax and wealth advisory firm based in Lynchburg, Virginia. He works with closely held family businesses and individuals with complex financial lives; people who need a CPA who understands not just their return, but their whole picture.</p>
-          <p>His practice sits at the intersection of tax strategy, business advisory, and financial planning, which means advice that's connected, not compartmentalized.</p>
-        </div>
-        <button class="btn-primary">Schedule a Conversation</button>
+      <div class="article-author-text">
+        <div class="article-author-label">Written by</div>
+        <div class="article-author-name">Luke Shoemaker, CPA &amp; CFP<sup>&#174;</sup></div>
+        <p>Luke is the founder of Shoemaker CPA, a coordinated tax and wealth advisory firm based in Roanoke, Virginia. He works with closely held family businesses and individuals with complex financial lives &#8212; people who need a CPA who understands not just their return, but their whole picture.</p>
+        <div class="btn-wrap btn-wrap-primary"><a href="shoemaker-contact" class="btn-primary">
+          Schedule a Conversation
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </a></div>
       </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ========== RELATED ARTICLES ========== -->
-<section class="related-articles">
-  <div class="container">
-    <div class="related-header reveal">
-      <div class="related-label">More from the firm</div>
-      <h2 class="related-heading">Keep reading</h2>
-    </div>
-
-    <div class="related-grid">
-
-      <!-- Related 1 -->
-      <article class="article-card reveal">
-        <div class="card-category">Tax Planning</div>
-        <h3>When a Roth conversion actually makes sense</h3>
-        <p class="card-excerpt">Everyone has heard that Roth conversions are a good idea. The question worth asking is: good for whom, and under what circumstances?</p>
-        <div class="card-meta">
-          <span class="card-author">Luke Shoemaker, CPA</span>
-          <span class="card-date">February 28, 2026</span>
-        </div>
-        <a href="resources-article.html" class="card-read-link">
-          Read article
-          <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </article>
-
-      <!-- Related 2 -->
-      <article class="article-card reveal">
-        <div class="card-category">Multifamily Office</div>
-        <h3>What coordinated tax and wealth planning looks like in practice</h3>
-        <p class="card-excerpt">Having a CPA and a financial advisor is common. Having them actually talk to each other and agree on a plan first is something else.</p>
-        <div class="card-meta">
-          <span class="card-author">Luke Shoemaker, CPA</span>
-          <span class="card-date">February 14, 2026</span>
-        </div>
-        <a href="resources-article.html" class="card-read-link">
-          Read article
-          <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </article>
-
-      <!-- Related 3 -->
-      <article class="article-card reveal">
-        <div class="card-category">Business Advisory</div>
-        <h3>Succession planning isn't just about who gets the business</h3>
-        <p class="card-excerpt">The transfer of a family business involves tax exposure, family dynamics, valuation disputes, and liquidity questions, often all at once.</p>
-        <div class="card-meta">
-          <span class="card-author">Luke Shoemaker, CPA</span>
-          <span class="card-date">January 15, 2026</span>
-        </div>
-        <a href="resources-article.html" class="card-read-link">
-          Read article
-          <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ========== NEWSLETTER CTA ========== -->
-<!-- DEVELOPER NOTE: Connect this form to your newsletter platform at build time. -->
-<section class="newsletter-cta">
-  <div class="container">
-    <div class="newsletter-cta-inner reveal">
-      <h2>Get insights worth reading.</h2>
-      <p class="cta-sub">No spam, no noise. Just useful writing when it's ready.</p>
-      <form class="cta-form" action="#" method="post">
-        <input type="email" name="email" placeholder="your@email.com" autocomplete="email" required>
-        <button type="submit">Subscribe</button>
-      </form>
-      <p class="cta-privacy">Unsubscribe anytime. We don't share your information.</p>
     </div>
   </div>
 </section>
@@ -1563,18 +1536,18 @@ a { text-decoration: none; color: inherit; }
     <div class="footer-links-col">
       <div class="footer-col">
         <h4>Services</h4>
-        <a href="multifamily-office.html">Multifamily Office</a>
-        <a href="business-advisory.html">Business Advisory</a>
+        <a href="multifamily-office">Multifamily Office</a>
+        <a href="business-advisory">Business Advisory</a>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
-        <a href="about.html">About</a>
-        <a href="resources-index.html">Resources</a>
+        <a href="about">About</a>
+        <a href="resources-index">Resources</a>
       </div>
       <div class="footer-col">
         <h4>Client</h4>
         <a href="https://portal.shoemaker.cpa" target="_blank" rel="noopener">Client Login</a>
-        <a href="shoemaker-contact.html">Schedule a Conversation</a>
+        <a href="shoemaker-contact">Schedule a Conversation</a>
       </div>
       <div class="footer-col">
         <h4>Connect</h4>
