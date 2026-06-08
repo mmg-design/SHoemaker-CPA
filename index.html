@@ -619,18 +619,22 @@ a { text-decoration: none; color: inherit; }
   max-width: 560px;
   padding: 72px 0 80px;
 }
-/* Hero image — full section fill */
+/* Hero image — full section fill, anchored right */
 .hero-image-wrap {
   position: absolute;
   inset: 0;
+  overflow: hidden;
   pointer-events: none;
   z-index: 1;
 }
 .hero-image-wrap img {
-  width: 100%;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
   height: 100%;
-  object-fit: cover;
-  object-position: right center;
+  width: auto;
+  max-width: none;
   display: block;
 }
 /* Gradient overlay so left-side text stays readable */
