@@ -590,7 +590,7 @@ a { text-decoration: none; color: inherit; }
    HERO
    ========================================= */
 .hero {
-  background-color: #3a2318;
+  background-color: var(--color-midnight);
   background-image:
     linear-gradient(to right,
       var(--color-midnight)        0%,
@@ -598,8 +598,8 @@ a { text-decoration: none; color: inherit; }
       rgba(0,0,38,0.42)           58%,
       rgba(0,0,38,0.05)          100%
     ),
-    url('heroimage.jpg.png');
-  background-size: 100% 100%, cover;
+    url('hero-image.png');
+  background-size: 100% 100%, 100% auto;
   background-position: center, right center;
   background-repeat: no-repeat, no-repeat;
   min-height: 88vh;
