@@ -590,7 +590,18 @@ a { text-decoration: none; color: inherit; }
    HERO
    ========================================= */
 .hero {
-  background: linear-gradient(170deg, var(--color-midnight) 0%, var(--color-navy) 100%);
+  background-color: #3a2318;
+  background-image:
+    linear-gradient(to right,
+      var(--color-midnight)        0%,
+      rgba(0,0,38,0.88)           30%,
+      rgba(0,0,38,0.42)           58%,
+      rgba(0,0,38,0.05)          100%
+    ),
+    url('heroimage.jpg.png');
+  background-size: 100% 100%, cover;
+  background-position: center, right center;
+  background-repeat: no-repeat, no-repeat;
   min-height: 88vh;
   display: flex;
   align-items: center;
@@ -598,58 +609,16 @@ a { text-decoration: none; color: inherit; }
   overflow: hidden;
   padding-top: 80px;
 }
-.hero::before {
-  display: none;
-}
-/* Subtle geometric texture */
-.hero::after {
-  content: '';
-  position: absolute;
-  bottom: -30%;
-  left: -10%;
-  width: 600px;
-  height: 600px;
-  border: 1px solid rgba(72, 164, 213, 0.04);
-  border-radius: 50%;
-  pointer-events: none;
-}
+.hero::before { display: none; }
+.hero::after  { display: none; }
 .hero-content {
   position: relative;
-  z-index: 3;
+  z-index: 2;
   max-width: 560px;
   padding: 72px 0 80px;
 }
-/* Hero image — full section fill, anchored right */
-.hero-image-wrap {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 1;
-}
-.hero-image-wrap img {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 100%;
-  width: auto;
-  max-width: none;
-  display: block;
-}
-/* Gradient overlay so left-side text stays readable */
-.hero-image-wrap::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to right,
-    var(--color-midnight) 0%,
-    rgba(0, 0, 38, 0.85) 35%,
-    rgba(0, 0, 38, 0.35) 65%,
-    rgba(0, 0, 38, 0.0) 100%
-  );
-}
+/* Hero image wrapper no longer needed — remove display */
+.hero-image-wrap { display: none; }
 .hero-eyebrow {
   color: var(--color-sky);
   margin-bottom: 28px;
@@ -1249,10 +1218,11 @@ a { text-decoration: none; color: inherit; }
   .hero {
     min-height: auto;
     padding-top: 120px;
-    background: linear-gradient(170deg, var(--color-midnight) 0%, var(--color-navy) 100%);
+    background-color: var(--color-midnight);
+    background-image: linear-gradient(170deg, var(--color-midnight) 0%, var(--color-navy) 100%);
+    background-size: cover;
   }
   .hero h1 { font-size: 38px; }
-  .hero-image-wrap { display: none; }
   .hero-content { padding: 54px 0 80px; }
   .hero-sub { font-size: 17px; }
   .hero-accent, .hero-accent-2 { display: none; }
